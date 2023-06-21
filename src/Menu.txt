@@ -9,6 +9,6 @@
 Nome Ristorante : La Trattoria Develop
 
 Menu di  : Carne
-
+Primo piatto : Carbonara
 Bevande : Acqua Naturale, Acqua Frizzante, Coca Cola, Sprite, Vino, Birra
 
