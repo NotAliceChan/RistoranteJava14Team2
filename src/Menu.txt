@@ -1,0 +1,6 @@
+.1 creare Branch Develop
+.2 inserire Develop come branch default (andare impostazioni di guthub)
+.3 dobbiamo finire l'esercizio (Il compito degli altri componenti del gruppo sarà quello di aggiungere una voce nel
+                                menù a testa)
+.4 Il lavoro completo dovrà essere prensentato in develop, quindi ognuno aprirà una Pull
+   Request verso develop.
