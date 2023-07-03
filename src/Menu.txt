@@ -11,7 +11,14 @@ Chef :  Alice
 
 Menu di pesce :
 Primi Piatti :
-- Carpaccio Maguro    € 18
+- Carpaccio Maguro       € 18
+- Tartarre di Salmone    € 14
+- Burrikama              € 22
+
+Secondi Piatti :
+-Insalata di Polpo e Patate   € 18
+-Salmone Grigliato            € 25
+-Seppie con Piselli           € 16
 
 Bevande : Acqua Naturale, Acqua Frizzante, Coca Cola, Sprite, Vino, Birra
 
