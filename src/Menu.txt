@@ -7,11 +7,11 @@
 
 
 Nome Ristorante : La Trattoria Develop
+Chef :  Alice
 
-Menu di  : Carne
-Primo piatto : Carbonara
+Menu di pesce :
+Primi Piatti :
+- Carpaccio Maguro    € 18
 
-
-Secondo piatto : Costatella.
 Bevande : Acqua Naturale, Acqua Frizzante, Coca Cola, Sprite, Vino, Birra
 
