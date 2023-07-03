@@ -6,7 +6,7 @@
    Request verso develop.
 
 
-Nome Ristorante : La Trattoria Develop
+Nome Ristorante : Ristorante La Sirenetta
 Chef :  Alice
 
 Menu di pesce :
@@ -19,6 +19,12 @@ Secondi Piatti :
 -Insalata di Polpo e Patate   € 18
 -Salmone Grigliato            € 25
 -Seppie con Piselli           € 16
+
+Dessert:
+-Tiramisú                     € 8
+-Tartufo di pizzo             € 8
+-Torta della nonna            € 10
+-Mazamorra morada             € 6
 
 Bevande : Acqua Naturale, Acqua Frizzante, Coca Cola, Sprite, Vino, Birra
 
