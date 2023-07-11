@@ -58,8 +58,7 @@ public class PrimiPiatti {
      */
     public void printDetails() {
         System.out.println(
-                this.nome + " - " + prezzo + " €"
+                this.nome + " - " + this.prezzo + " €"
         );
-
     }
 }
