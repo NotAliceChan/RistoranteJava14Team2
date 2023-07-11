@@ -4,6 +4,11 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+        List<SecondiPiatti> secondiPiatti = new ArrayList<>();
+        secondiPiatti.add(new SecondiPiatti("Insalata di Polpo e Patate", 18));
+        secondiPiatti.add(new SecondiPiatti("Salmone Grigliato", 25));
+        secondiPiatti.add(new SecondiPiatti("-Seppie con Piselli", 16));
+
         List<Bevande> bevande = new ArrayList<>();
         bevande.add(new Bevande("Acqua Naturale", 2.50));
         bevande.add(new Bevande("Coca cola", 3.00));
@@ -20,6 +25,16 @@ public class Main {
         /**
          * inizio sezione bevamde
          */
+
+        System.out.println("RISTORANTE LA SIRENETTA\n");
+
+
+
+        System.out.println("\nSECONDI PIATTI\n");
+        for (SecondiPiatti secondoPiatto : secondiPiatti) {
+            System.out.println(secondoPiatto.getNome() + " - " + "€" + secondoPiatto.getPrezzo());
+        }
+
         System.out.println("\nBEVANDE\n");
         for (Bevande bevanda : bevande) {
             System.out.println(bevanda.getNome() + " - " + "€" + bevanda.getPrezzo());
