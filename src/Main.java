@@ -3,16 +3,16 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        Menu menu = new Menu();
 
         List<PrimiPiatti> primiPiatti = new ArrayList<>();
         primiPiatti.add(new PrimiPiatti("Carpaccio Maguro", 18.50));
         primiPiatti.add(new PrimiPiatti("Tartarre di Salmone", 14.80));
         primiPiatti.add(new PrimiPiatti("Burrikama", 22.90));
 
-        List<SecondiPiatti> secondiPiatti = new ArrayList<>();
-        secondiPiatti.add(new SecondiPiatti("Insalata di Polpo e Patate", 18.80));
-        secondiPiatti.add(new SecondiPiatti("Salmone Grigliato", 25.90));
-        secondiPiatti.add(new SecondiPiatti("-Seppie con Piselli", 16.40));
+        menu.addPiattoBevandaDessert(new SecondiPiatti("Insalata di Polpo e Patate", 18.80));
+        menu.addPiattoBevandaDessert(new SecondiPiatti("Salmone Grigliato", 25.90));
+        menu.addPiattoBevandaDessert(new SecondiPiatti("Seppie con Piselli", 16.40));
 
         List<Bevande> bevande = new ArrayList<>();
         bevande.add(new Bevande("Acqua Naturale", 2.50));
@@ -38,10 +38,7 @@ public class Main {
             System.out.println(primopiatto.getNome() + " - " + "€" + primopiatto.getPrezzo());
         }
 
-        System.out.println("\nSECONDI PIATTI\n");
-        for (SecondiPiatti secondoPiatto : secondiPiatti) {
-            System.out.println(secondoPiatto.getNome() + " - " + "€" + secondoPiatto.getPrezzo());
-        }
+        menu.printMenu();
 
         System.out.println("\nBEVANDE\n");
         for (Bevande bevanda : bevande) {
@@ -54,10 +51,5 @@ public class Main {
         }
 
 
-
-
     }
-
-
-
 }
