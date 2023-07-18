@@ -4,6 +4,7 @@
 public class SecondiPiatti {
     private String nome;
     private double prezzo;
+    private Dieta tipoDieta;
 
     /**
      * Instantiates a new Secondi piatti.
@@ -14,6 +15,12 @@ public class SecondiPiatti {
     public SecondiPiatti(String nome, double prezzo) {
         this.nome = nome;
         this.prezzo = prezzo;
+    }
+
+    public SecondiPiatti(String nome, double prezzo, Dieta tipoDieta) {
+        this.nome = nome;
+        this.prezzo = prezzo;
+        this.tipoDieta = tipoDieta;
     }
 
     /**
@@ -50,6 +57,24 @@ public class SecondiPiatti {
      */
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
+    }
+
+    /**
+     * Gets tipo.
+     *
+     * @return the tipo
+     */
+    public Dieta getTipoDieta() {
+        return tipoDieta;
+    }
+
+    /**
+     * Sets tipo.
+     *
+     * @param tipo the tipo
+     */
+    public void setTipoDieta(Dieta tipo) {
+        this.tipoDieta = tipoDieta;
     }
 
     /**

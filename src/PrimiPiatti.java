@@ -6,7 +6,7 @@ public class PrimiPiatti {
     private String nome;
     private double prezzo;
 
-    private Dieta tipo;
+    private Dieta tipoDieta;
 
     /**
      * Instantiates a new Primi piatti.
@@ -22,14 +22,14 @@ public class PrimiPiatti {
     /**
      * Instantiates a new Primi piatti.
      *
-     * @param nome   the nome
-     * @param prezzo the prezzo
-     * @param tipo   the tipo
+     * @param nome      the nome
+     * @param prezzo    the prezzo
+     * @param tipoDieta the tipo
      */
-    public PrimiPiatti(String nome, double prezzo, Dieta tipo) {
+    public PrimiPiatti(String nome, double prezzo, Dieta tipoDieta) {
         this.nome = nome;
         this.prezzo = prezzo;
-        this.tipo = tipo;
+        this.tipoDieta = tipoDieta;
     }
 
 
@@ -74,8 +74,8 @@ public class PrimiPiatti {
      *
      * @return the tipo
      */
-    public Dieta getTipo() {
-        return tipo;
+    public Dieta getTipoDieta() {
+        return tipoDieta;
     }
 
     /**
@@ -83,8 +83,8 @@ public class PrimiPiatti {
      *
      * @param tipo the tipo
      */
-    public void setTipo(Dieta tipo) {
-        this.tipo = tipo;
+    public void setTipoDieta(Dieta tipo) {
+        this.tipoDieta = tipo;
     }
 
     /**
