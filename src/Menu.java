@@ -94,6 +94,7 @@ public class Menu {
 
     // TODO aggiungere un ciclo for a questo metodo che stampa in base al vostro tipo VEGANO O VEGETARIANO, il menu come nell'esempio qui sotto.
     public void printMenu(Dieta tipoDieta) {
+        // inizio sezione primi piatti
         if (tipoDieta == Dieta.VEGANO) {
             if (!isPrimiPiattiVegani) {
                 System.out.println("\nPRIMI PIATTI VEGANI:\n");
@@ -104,7 +105,6 @@ public class Menu {
                     System.out.println(primoVegano.getNome() + " - " + "€" + primoVegano.getPrezzo());
                 }
             }
-
         } else if (tipoDieta == Dieta.VEGETARIANO) {
             if (!isPrimiPiattiVegetariani) {
                 System.out.println("\nPRIMI PIATTI VEGETARIANI:\n");
@@ -116,17 +116,20 @@ public class Menu {
                 }
             }
         }
-        if (!isSecondiPiattiVegani) {
-            System.out.println("\nSECONDI PIATTI VEGANI:\n");
-            isSecondiPiattiVegani = true;
+        // inizio sezione secondi piatti
+        if (tipoDieta == Dieta.VEGANO) {
+            if (!isSecondiPiattiVegani) {
+                System.out.println(Color.RED.getEscapeSequence() + "\nSECONDI PIATTI VEGANI:\n" + Color.RESET.getEscapeSequence());
+                isSecondiPiattiVegani = true;
+            }
         }
         for (SecondiPiatti secondoVegano : secondiPiatti) {
             if (secondoVegano.getTipoDieta() == tipoDieta) {
                 System.out.println(secondoVegano.getNome() + " - " + "€" + secondoVegano.getPrezzo());
             } else if (tipoDieta == Dieta.VEGETARIANO) {
                 if (!isSecondiPiattiVegetariani) {
-                    System.out.println("\nSECONDI PIATTI VEGETARIANI:\n");
-                    isSecondiPiattiVegani = true;
+                    System.out.println(Color.GREEN.getEscapeSequence() + "\nSECONDI PIATTI VEGETARIANI:\n"+ Color.RESET.getEscapeSequence());
+                    isSecondiPiattiVegetariani = true;
                     for (SecondiPiatti secondoVegetariano : secondiPiatti) {
                         if (secondoVegetariano.getTipoDieta() == tipoDieta) {
                             System.out.println(secondoVegetariano.getNome() + " - " + "€" + secondoVegetariano.getPrezzo());
@@ -135,6 +138,8 @@ public class Menu {
                 }
             }
         }
+        // inizio sezione Dessert
+
     }
-    // TODO andate a modificare il main in modo di applicare questa logica.
 }
+// TODO andate a modificare il main in modo di applicare questa logica.

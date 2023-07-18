@@ -4,6 +4,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
+        Color red = Color.RED;
 
 
         menu.addPrimoPiatto(new PrimiPiatti("Carpaccio Maguro", 18.50));
@@ -29,7 +30,7 @@ public class Main {
         dessert.add(new Dessert("Mazzamorra morada", 6.70));
 
 
-        System.out.println("RISTORANTE LA SIRENETTA\n");
+        System.out.println(Color.BLUE.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + Color.RESET.getEscapeSequence());
 
 
 
@@ -44,7 +45,5 @@ public class Main {
         for (Dessert dessert1 : dessert) {
             System.out.println(dessert1.getNome() + " - " + "€" + dessert1.getPrezzo());
         }
-
-
     }
 }
