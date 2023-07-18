@@ -7,8 +7,8 @@ public class Main {
 
 
         menu.addPrimoPiatto(new PrimiPiatti("Carpaccio Maguro", 18.50));
-        menu.addPrimoPiatto(new PrimiPiatti("Tartarre di Salmone", 14.80));
-        menu.addPrimoPiatto(new PrimiPiatti("Burrikama", 22.90));
+        menu.addPrimoPiatto(new PrimiPiatti("Tartarre di Salmone", 14.80, Dieta.VEGETARIANO));
+        menu.addPrimoPiatto(new PrimiPiatti("Burrikama", 22.90, Dieta.VEGANO) );
 
         menu.addSecondoPiatto(new SecondiPiatti("Insalata di Polpo e Patate", 18.80));
         menu.addSecondoPiatto(new SecondiPiatti("Salmone Grigliato", 25.90));
@@ -31,7 +31,14 @@ public class Main {
 
         System.out.println("RISTORANTE LA SIRENETTA\n");
 
-        menu.printMenu();
+
+
+        menu.printMenu(Dieta.VEGANO);
+
+      menu.printMenu(Dieta.VEGETARIANO);
+
+
+      menu.printMenu();
 
         System.out.println("\nDESSERT\n");
         for (Dessert dessert1 : dessert) {

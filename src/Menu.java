@@ -8,6 +8,9 @@ public class Menu {
     private List<SecondiPiatti> secondiPiatti;
     private List<Bevande> bevande;
 
+
+    boolean isPrimiPiattiVegani = false;
+    boolean isPrimiPiattiVegetariani = false;
     private Boolean isStampaScrittaPrimiUnaVolta = false;
     private Boolean stampaScrittaSecondiUnaVolta = false;
     private Boolean stampaScrittaBevandeUnavolta = false;
@@ -18,13 +21,14 @@ public class Menu {
         this.primipiatti = new ArrayList<>();
         this.secondiPiatti = new ArrayList<>();
         this.bevande = new ArrayList<>();
-    }
 
+    }
 
     //TODO copia sotto
 
     public void addPrimoPiatto(PrimiPiatti primipiatti) {
         this.primipiatti.add(primipiatti);
+
     }
 
     public void addSecondoPiatto(SecondiPiatti secondoPiatto) {
@@ -68,35 +72,58 @@ public class Menu {
 
 
     public void printMenu() {
-
-        for (PrimiPiatti piattoP : this.primipiatti) {
-            if (!isStampaScrittaPrimiUnaVolta) {
-                System.out.println("\nPRIMI PIATTI\n");
-                isStampaScrittaPrimiUnaVolta = true;
+        for (PrimiPiatti primo : primipiatti) {
+                if (!isStampaScrittaPrimiUnaVolta) {
+                    System.out.println("\nPRIMI PIATTI:\n");
+                    isStampaScrittaPrimiUnaVolta = true;
+                }
+                System.out.println(primo.getNome() + " - " + "€" + primo.getPrezzo());
             }
 
-            System.out.println(piattoP.getNome() + " - " + "€" + piattoP.getPrezzo());
 
+
+        for (SecondiPiatti piattoS : this.secondiPiatti) {
+            if (!stampaScrittaSecondiUnaVolta) {
+                System.out.println("\nSECONDI PIATTI\n");
+                stampaScrittaSecondiUnaVolta = true;
+            }
+
+            System.out.println(piattoS.getNome() + " - " + "€" + piattoS.getPrezzo());
+        }
+        for (Bevande bevanda : this.bevande) {
+            if (!stampaScrittaBevandeUnavolta) {
+                System.out.println("\nBEVANDE\n");
+                stampaScrittaBevandeUnavolta = true;
+            }
+
+            System.out.println(bevanda.getNome() + " - " + "€" + bevanda.getPrezzo());
         }
 
-            for (SecondiPiatti piattoS : this.secondiPiatti) {
-                if (!stampaScrittaSecondiUnaVolta) {
-                    System.out.println("\nSECONDI PIATTI\n");
-                    stampaScrittaSecondiUnaVolta = true;
-                }
-
-                System.out.println(piattoS.getNome() + " - " + "€" + piattoS.getPrezzo());
-            }
-            for (Bevande bevanda : this.bevande) {
-                if (!stampaScrittaBevandeUnavolta) {
-                    System.out.println("\nBEVANDE\n");
-                    stampaScrittaBevandeUnavolta = true;
-                }
-
-                System.out.println(bevanda.getNome() + " - " + "€" + bevanda.getPrezzo());
-            }
-
-        }
     }
 
-//TODO andate a modificare il main in modo di applicare questa logica.
+    public void printMenu(Dieta tipo) {
+        if (tipo == Dieta.VEGANO) {
+            if (!isStampaScrittaPrimiUnaVolta) {
+                System.out.println("\nPRIMI PIATTI VEGANI:\n");
+                isPrimiPiattiVegani = true;
+            }
+            for (PrimiPiatti primoV : primipiatti) {
+                if (primoV.getTipo() == tipo) {
+                    System.out.println(primoV.getNome() + " - " + "€" + primoV.getPrezzo());
+                }
+            }
+        } else if (tipo == Dieta.VEGETARIANO) {
+            if (!isStampaScrittaPrimiUnaVolta) {
+                System.out.println("\nPRIMI PIATTI VEGETARIANI:\n");
+                isPrimiPiattiVegetariani = true;
+                for (PrimiPiatti primove : primipiatti) {
+                    if (primove.getTipo() == tipo) {
+                        System.out.println(primove.getNome() + " - " + "€" + primove.getPrezzo());
+                    }
+                }
+            }
+        }
+    }
+    //TODO andate a modificare il main in modo di applicare questa logica.
+}
+
