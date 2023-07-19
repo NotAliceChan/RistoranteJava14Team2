@@ -4,6 +4,7 @@
 public class Dessert {
     private String nome;
     private double prezzo;
+    private Dieta tipoDieta;
 
     /**
      * Instantiates a new Dessert.
@@ -14,6 +15,19 @@ public class Dessert {
     public Dessert(String nome, double prezzo) {
         this.nome = nome;
         this.prezzo = prezzo;
+    }
+
+    /**
+     * Instantiates a new Dessert.
+     *
+     * @param nome      the nome
+     * @param prezzo    the prezzo
+     * @param tipoDieta the tipo dieta
+     */
+    public Dessert(String nome, double prezzo, Dieta tipoDieta) {
+        this.nome = nome;
+        this.prezzo = prezzo;
+        this.tipoDieta = tipoDieta;
     }
 
     /**
@@ -35,6 +49,15 @@ public class Dessert {
     }
 
     /**
+     * Sets tipo dieta.
+     *
+     * @param tipoDieta the tipo dieta
+     */
+    public void setTipoDieta(Dieta tipoDieta) {
+        this.tipoDieta = tipoDieta;
+    }
+
+    /**
      * Gets nome.
      *
      * @return the nome
@@ -50,6 +73,15 @@ public class Dessert {
      */
     public Double getPrezzo() {
         return this.prezzo;
+    }
+
+    /**
+     * Gets tipo dieta.
+     *
+     * @return the tipo dieta
+     */
+    public Dieta getTipoDieta() {
+        return tipoDieta;
     }
 
     /**

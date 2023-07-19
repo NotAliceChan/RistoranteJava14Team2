@@ -7,14 +7,19 @@ public class Menu {
     private List<PrimiPiatti> primipiatti;
     private List<SecondiPiatti> secondiPiatti;
     private List<Bevande> bevande;
+    private List<Dessert> desserts;
 
     private Boolean isPrimiPiattiVegani = false;
     private Boolean isPrimiPiattiVegetariani = false;
     private Boolean isSecondiPiattiVegani = false;
     private Boolean isSecondiPiattiVegetariani = false;
+    private Boolean isDessertVegano = false;
+    private Boolean isDessertVegetariano = false;
     private Boolean StampaScrittaPrimiUnaVolta = false;
     private Boolean stampaScrittaSecondiUnaVolta = false;
     private Boolean stampaScrittaBevandeUnavolta = false;
+
+    private Boolean stampaDessertsUnaVolta = false;
 
     // TODO aggiungete all'interno del costruttore il vostro new ArrayList<>()
 
@@ -22,6 +27,7 @@ public class Menu {
         this.primipiatti = new ArrayList<>();
         this.secondiPiatti = new ArrayList<>();
         this.bevande = new ArrayList<>();
+        this.desserts = new ArrayList<>();
     }
 
     // TODO copia sotto
@@ -36,6 +42,9 @@ public class Menu {
 
     public void addBevanda(Bevande bevanda) {
         this.bevande.add(bevanda);
+    }
+    public void addDessert(Dessert dessert){
+        this.desserts.add(dessert);
     }
 
     // TODO copia sotto
@@ -52,6 +61,10 @@ public class Menu {
         this.bevande.set(index, element);
     }
 
+    public void setDessert(int index, Dessert element){
+        this.desserts.set(index,element);
+    }
+
     // TODO copia quello sotto
 
     public void removePrimoPiatto(int index) {
@@ -64,6 +77,10 @@ public class Menu {
 
     public void removeBevanda(int index) {
         this.bevande.remove(index);
+    }
+
+    public void removeDessert(int index){
+        this.desserts.remove(index);
     }
 
     // TODO aggiungere un ciclo for a questo metodo che stampa il vostro tipo come nell'esempio qui sotto.
@@ -89,6 +106,13 @@ public class Menu {
                 stampaScrittaBevandeUnavolta = true;
             }
             System.out.println(bevanda.getNome() + " - " + "€" + bevanda.getPrezzo());
+        }
+        for (Dessert dolce : desserts) {
+            if (!stampaDessertsUnaVolta) {
+                System.out.println("\nDESSERTS:\n");
+                stampaDessertsUnaVolta = true;
+            }
+            System.out.println(dolce.getNome() + " - " + "€" + dolce.getPrezzo());
         }
     }
 
@@ -139,7 +163,28 @@ public class Menu {
             }
         }
         // inizio sezione Dessert
-
+        if (tipoDieta == Dieta.VEGANO) {
+            if (!isDessertVegano) {
+                System.out.println("\nDESSERT VEGANI:\n");
+                isDessertVegano = true;
+            }
+            for (Dessert dolceVegano : desserts) {
+                if (dolceVegano.getTipoDieta() == tipoDieta) {
+                    System.out.println(dolceVegano.getNome() + " - " + "€" + dolceVegano.getPrezzo());
+                }
+            }
+        }
+        else if (tipoDieta == Dieta.VEGETARIANO) {
+            if (!isDessertVegetariano) {
+                System.out.println("\nDESSERT VEGETARIANI:\n");
+                isDessertVegetariano = true;
+                for (Dessert dolceVegetariano : desserts) {
+                    if (dolceVegetariano.getTipoDieta() == tipoDieta) {
+                        System.out.println(dolceVegetariano.getNome() + " - " + "€" + dolceVegetariano.getPrezzo());
+                    }
+                }
+            }
+        }
     }
 }
 // TODO andate a modificare il main in modo di applicare questa logica.

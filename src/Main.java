@@ -23,27 +23,19 @@ public class Main {
         menu.addBevanda(new Bevande("Vino Rosso Fazio", 6.50));
         menu.addBevanda(new Bevande("Vino Bianco Team1Java (Produzione propria) ", 14.50));
 
-        List<Dessert> dessert = new ArrayList<>();
-        dessert.add(new Dessert("Tiramisù", 8.00));
-        dessert.add(new Dessert("Tartufo di Pizzo", 8.40));
-        dessert.add(new Dessert("Torta della nonna", 10.90));
-        dessert.add(new Dessert("Mazzamorra morada", 6.70));
+        menu.addDessert(new Dessert("Tiramisù", 8.00));
+        menu.addDessert(new Dessert("Tartufo di Pizzo", 8.40));
+        menu.addDessert(new Dessert("Torta della nonna", 10.90));
+        menu.addDessert(new Dessert("Mazzamorra morada", 6.70));
 
 
         System.out.println(Color.BLUE.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + Color.RESET.getEscapeSequence());
 
-
-
         menu.printMenu(Dieta.VEGANO);
 
-      menu.printMenu(Dieta.VEGETARIANO);
+        menu.printMenu(Dieta.VEGETARIANO);
 
+        menu.printMenu();
 
-      menu.printMenu();
-
-        System.out.println("\nDESSERT\n");
-        for (Dessert dessert1 : dessert) {
-            System.out.println(dessert1.getNome() + " - " + "€" + dessert1.getPrezzo());
-        }
     }
 }
