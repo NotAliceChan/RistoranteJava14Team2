@@ -101,6 +101,13 @@ public class Menu {
                     System.out.println(primoVegetariano.getNome() + " - " + "€" + primoVegetariano.getPrezzo());
                 }
             }
+        } else if (tipoDieta == Dieta.SENZA_GLUTINE) {
+            System.out.println(Color.YELLOW.getEscapeSequence() + "\nPRIMI PIATTI SENZA GLUTINE:\n" + Color.RESET.getEscapeSequence());
+            for (PrimiPiatti primoSenzaGlutine : primipiatti) {
+                if (primoSenzaGlutine.getTipoDieta() == tipoDieta) {
+                    System.out.println(primoSenzaGlutine.getNome() + " - " + "€" + primoSenzaGlutine.getPrezzo());
+                }
+            }
         }
         // inizio sezione secondi piatti
         if (tipoDieta == Dieta.VEGANO) {
@@ -116,6 +123,13 @@ public class Menu {
             for (SecondiPiatti secondoVegetariano : secondiPiatti) {
                 if (secondoVegetariano.getTipoDieta() == tipoDieta) {
                     System.out.println(secondoVegetariano.getNome() + " - " + "€" + secondoVegetariano.getPrezzo());
+                }
+            }
+        } else if (tipoDieta == Dieta.SENZA_GLUTINE) {
+            System.out.println(Color.YELLOW.getEscapeSequence() + "\nSECONDI PIATTI SENZA GLUTINE:\n" + Color.RESET.getEscapeSequence());
+            for (SecondiPiatti secondoSenzaGlutine : secondiPiatti) {
+                if (secondoSenzaGlutine.getTipoDieta() == tipoDieta) {
+                    System.out.println(secondoSenzaGlutine.getNome() + " - " + "€" + secondoSenzaGlutine.getPrezzo());
                 }
             }
         }
@@ -135,7 +149,13 @@ public class Menu {
                     System.out.println(dolceVegetariano.getNome() + " - " + "€" + dolceVegetariano.getPrezzo());
                 }
             }
+        } else if (tipoDieta == Dieta.SENZA_GLUTINE) {
+            System.out.println(Color.YELLOW.getEscapeSequence() + "\nDESSERT SENZA GLUTINE:\n" + Color.RESET.getEscapeSequence());
+            for (Dessert dessertSenzaGlutine : desserts) {
+                if (dessertSenzaGlutine.getTipoDieta() == tipoDieta) {
+                    System.out.println(dessertSenzaGlutine.getNome() + " - " + "€" + dessertSenzaGlutine.getPrezzo());
+                }
+            }
         }
     }
 }
-

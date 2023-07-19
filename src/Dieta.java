@@ -1,7 +1,9 @@
 public enum Dieta {
 
     VEGANO,
-    VEGETARIANO
+    VEGETARIANO,
+
+    SENZA_GLUTINE
 
     ;
 
