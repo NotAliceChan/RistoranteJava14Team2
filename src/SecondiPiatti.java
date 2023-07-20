@@ -7,7 +7,7 @@ public class SecondiPiatti extends Portata {
         super(nome, prezzo);
     }
 
-    public SecondiPiatti(String nome, Double prezzo, Dieta tipoDieta) {
-        super(nome, prezzo, tipoDieta);
+    public SecondiPiatti(String nome, Double prezzo, DietaEnum tipoDietaEnum) {
+        super(nome, prezzo, tipoDietaEnum);
     }
 }

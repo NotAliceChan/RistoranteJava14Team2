@@ -1,6 +1,4 @@
 public enum ColorEnum {
-
-    //TODO sempre enum alla fine, e inserire anche la descrizione
     RESET("\u001B[0m", "colore predefinito" ),
     RED("\u001B[31m", "colore rosso"),
     GREEN("\u001B[32m", "colore verde"),

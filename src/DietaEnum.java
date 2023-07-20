@@ -1,4 +1,4 @@
-public enum Dieta {
+public enum DietaEnum {
 
     VEGANO("tipo vegano"),
     VEGETARIANO("tipo vegetariano"),
@@ -8,7 +8,7 @@ public enum Dieta {
     ;
     String info;
 
-    Dieta(String info) {
+    DietaEnum(String info) {
         this.info = info;
     }
 

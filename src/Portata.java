@@ -1,45 +1,95 @@
+/**
+ * The type Portata.
+ */
 public class Portata {
     private String nome;
     private Double prezzo;
-    private Dieta tipoDieta;
+    private DietaEnum tipoDietaEnum;
 
+    /**
+     * Instantiates a new Portata.
+     *
+     * @param nome   the nome
+     * @param prezzo the prezzo
+     */
     public Portata(String nome, Double prezzo) {
         this.nome = nome;
         this.prezzo = prezzo;
     }
 
-    public Portata(String nome, Double prezzo, Dieta tipoDieta) {
+    /**
+     * Instantiates a new Portata.
+     *
+     * @param nome          the nome
+     * @param prezzo        the prezzo
+     * @param tipoDietaEnum the tipo dieta enum
+     */
+    public Portata(String nome, Double prezzo, DietaEnum tipoDietaEnum) {
         this.nome = nome;
         this.prezzo = prezzo;
-        this.tipoDieta = tipoDieta;
+        this.tipoDietaEnum = tipoDietaEnum;
     }
 
+    /**
+     * Gets nome.
+     *
+     * @return the nome
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Sets nome.
+     *
+     * @param nome the nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Gets prezzo.
+     *
+     * @return the prezzo
+     */
     public Double getPrezzo() {
         return prezzo;
     }
 
+    /**
+     * Sets prezzo.
+     *
+     * @param prezzo the prezzo
+     */
     public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
     }
 
-    public Dieta getTipoDieta() {
-        return tipoDieta;
+    /**
+     * Gets tipo dieta.
+     *
+     * @return the tipo dieta
+     */
+    public DietaEnum getTipoDieta() {
+        return tipoDietaEnum;
     }
 
-    public void setTipoDieta(Dieta tipoDieta) {
-        this.tipoDieta = tipoDieta;
+    /**
+     * Sets tipo dieta.
+     *
+     * @param tipoDietaEnum the tipo dieta enum
+     */
+    public void setTipoDieta(DietaEnum tipoDietaEnum) {
+        this.tipoDietaEnum = tipoDietaEnum;
     }
 
     @Override
     public String toString() {
-        return this.nome + " - " + this.prezzo + " € " + "(" + tipoDieta + ")";
+        if (tipoDietaEnum ==null){
+            return this.nome + " - " + this.prezzo + " € ";
+        } else {
+            return this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum + ")";
+        }
     }
 }

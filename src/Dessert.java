@@ -6,7 +6,7 @@ public class Dessert {
     private double prezzo;
 
     //TODO dietaEnum
-    private Dieta tipoDieta;
+    private DietaEnum tipoDietaEnum;
 
     /**
      * Instantiates a new Dessert.
@@ -24,12 +24,12 @@ public class Dessert {
      *
      * @param nome      the nome
      * @param prezzo    the prezzo
-     * @param tipoDieta the tipo dieta
+     * @param tipoDietaEnum the tipo dieta
      */
-    public Dessert(String nome, double prezzo, Dieta tipoDieta) {
+    public Dessert(String nome, double prezzo, DietaEnum tipoDietaEnum) {
         this.nome = nome;
         this.prezzo = prezzo;
-        this.tipoDieta = tipoDieta;
+        this.tipoDietaEnum = tipoDietaEnum;
     }
 
     /**
@@ -53,10 +53,10 @@ public class Dessert {
     /**
      * Sets tipo dieta.
      *
-     * @param tipoDieta the tipo dieta
+     * @param tipoDietaEnum the tipo dieta
      */
-    public void setTipoDieta(Dieta tipoDieta) {
-        this.tipoDieta = tipoDieta;
+    public void setTipoDieta(DietaEnum tipoDietaEnum) {
+        this.tipoDietaEnum = tipoDietaEnum;
     }
 
     /**
@@ -82,8 +82,8 @@ public class Dessert {
      *
      * @return the tipo dieta
      */
-    public Dieta getTipoDieta() {
-        return tipoDieta;
+    public DietaEnum getTipoDieta() {
+        return tipoDietaEnum;
     }
 
     /**
