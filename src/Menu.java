@@ -87,6 +87,14 @@ public class Menu {
     public void printMenu(Dieta tipoDieta) {
         // inizio sezione primi piatti
 
+
+        //TODO approfondire
+        for (Portata portata: PortataList) {
+            if(portata.getTipoDieto == tipoDieta){
+                //Stampo la portata
+            }
+        }
+
         if (tipoDieta == Dieta.VEGANO) {
             System.out.println(Color.RED.getEscapeSequence() + "\nPRIMI PIATTI VEGANI:\n" + Color.RESET.getEscapeSequence());
             for (PrimiPiatti primoVegano : primipiatti) {

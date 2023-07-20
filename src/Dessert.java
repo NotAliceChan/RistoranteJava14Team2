@@ -4,6 +4,8 @@
 public class Dessert {
     private String nome;
     private double prezzo;
+
+    //TODO dietaEnum
     private Dieta tipoDieta;
 
     /**

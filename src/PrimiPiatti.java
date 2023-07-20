@@ -3,6 +3,8 @@
  */
 public class PrimiPiatti {
 
+    //TODO creare una classe Portata che poi viene estesa da tutte le classi che avete fatto
+
     private String nome;
     private double prezzo;
 

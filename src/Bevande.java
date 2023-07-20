@@ -3,6 +3,8 @@
  */
 public class Bevande {
     private String nome;
+
+    //TODO dobbiamo usare sempre gli oggetti Double
     private double prezzo;
 
     /**
@@ -58,7 +60,6 @@ public class Bevande {
      */
     public void printDetails() {
         System.out.println(
-                this.nome + " - " + this.prezzo + " €"
-        );
+                this.nome + " - " + this.prezzo + " €");
     }
 }

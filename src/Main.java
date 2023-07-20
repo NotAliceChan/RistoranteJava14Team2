@@ -4,6 +4,13 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
+        Menu menu3 = new Menu();
+
+        menu.printMenu();
+
+        //TODO lasciare solo una gestione unica su menù utilizzando solo una liste di portata
+
+        Portata piatto1 = new PrimiPiatti("Carpaccio Maguro", 18.50);
 
         menu.addPrimoPiatto(new PrimiPiatti("Carpaccio Maguro", 18.50));
         menu.addPrimoPiatto(new PrimiPiatti("Tartarre di Salmone", 14.80));
