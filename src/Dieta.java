@@ -1,14 +1,15 @@
 public enum Dieta {
 
-    VEGANO,
-    VEGETARIANO,
+    VEGANO("tipo vegano"),
+    VEGETARIANO("tipo vegetariano"),
 
-    SENZA_GLUTINE
+    SENZA_GLUTINE("tipo senza glutine")
 
     ;
+    String info;
 
-    Dieta() {
-
+    Dieta(String info) {
+        this.info = info;
     }
 
 

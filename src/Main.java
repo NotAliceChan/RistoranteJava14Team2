@@ -1,18 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
         Menu menu3 = new Menu();
 
-        menu.printMenu();
+
 
         //TODO lasciare solo una gestione unica su menù utilizzando solo una liste di portata
 
-        Portata piatto1 = new PrimiPiatti("Carpaccio Maguro", 18.50);
+        Portata piatto1 = new SecondiPiatti("Carpaccio Maguro", 18.50, Dieta.VEGANO);
+        menu.addPortata(piatto1);
 
-        menu.addPrimoPiatto(new PrimiPiatti("Carpaccio Maguro", 18.50));
+        menu.printMenu();
+
+       /* menu.addPrimoPiatto(new PrimiPiatti("Carpaccio Maguro", 18.50));
         menu.addPrimoPiatto(new PrimiPiatti("Tartarre di Salmone", 14.80));
         menu.addPrimoPiatto(new PrimiPiatti("Salmone marinato al genmaicha e al coriandolo", 22.90, Dieta.SENZA_GLUTINE) );
         menu.addPrimoPiatto(new PrimiPiatti("Ramen Vegano", 14.55, Dieta.VEGANO));
@@ -38,8 +38,8 @@ public class Main {
         menu.addDessert(new Dessert("Torta della nonna", 10.90,Dieta.VEGANO));
         menu.addDessert(new Dessert("Mazzamorra morada", 6.70,Dieta.VEGETARIANO));
         menu.addDessert(new Dessert("Crostata Primavera", 12.99, Dieta.SENZA_GLUTINE));
-
-        System.out.println(Color.BLUE.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + Color.RESET.getEscapeSequence());
+*/
+        System.out.println(ColorEnum.BLUE.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + ColorEnum.RESET.getEscapeSequence());
         menu.printMenu(Dieta.VEGANO);
         menu.printMenu(Dieta.VEGETARIANO);
         menu.printMenu(Dieta.SENZA_GLUTINE);
