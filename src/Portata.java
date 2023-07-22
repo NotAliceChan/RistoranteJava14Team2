@@ -89,7 +89,7 @@ public class Portata {
         if (tipoDietaEnum ==null){
             return this.nome + " - " + this.prezzo + " € ";
         } else {
-            return this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum + ")";
+            return this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")";
         }
     }
 }

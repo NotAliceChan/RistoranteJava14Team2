@@ -1,16 +1,17 @@
 public enum DietaEnum {
+    VEGANO("VEGANO", ColorEnum.RED),
+    VEGETARIANO("VEGETARIANO", ColorEnum.GREEN),
+    SENZA_GLUTINE("SENZA GLUTINE", ColorEnum.YELLOW);
 
-    VEGANO("tipo vegano"),
-    VEGETARIANO("tipo vegetariano"),
+    private String info;
+    private ColorEnum color;
 
-    SENZA_GLUTINE("tipo senza glutine")
-
-    ;
-    String info;
-
-    DietaEnum(String info) {
+    DietaEnum(String info, ColorEnum color) {
         this.info = info;
+        this.color = color;
     }
 
-
+    public String printWithColor() {
+        return color.getEscapeSequence() + info + ColorEnum.RESET.getEscapeSequence();
+    }
 }

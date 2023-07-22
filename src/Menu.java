@@ -121,15 +121,53 @@ public class Menu {
     }
 
     /**
+     * aggiunge ad una lista i secondi piatti della lista Portata
+     */
+    //TODO copiate questo metodo e cambiate con la vostra classe. Poi aggiungete questo metodo al printMenu()
+    private void printSecondiPiatti() {
+        List<SecondiPiatti> secondiPiatti = new ArrayList<>();
+
+        // Divide le portate in secondi piatti
+        for (Portata portata : portataList) {
+            if (portata instanceof SecondiPiatti) {
+                secondiPiatti.add((SecondiPiatti) portata);
+            }
+        }
+        System.out.println("SECONDI PIATTI");
+        for (SecondiPiatti secondo : secondiPiatti) {
+            System.out.println(secondo);
+        }
+    }
+
+    /**
+     * aggiunge ad una lista i secondi piatti della lista Portata in base al tipo di dieta
+     */
+    //TODO copiate questo metodo e cambiate con la vostra classe. Poi aggiungete questo metodo al printMenu(Dieta tipoDietaEnum)
+    private void printSecondiPiatti(DietaEnum tipoDietaEnum) {
+        List<SecondiPiatti> secondiPiatti = new ArrayList<>();
+
+        // Divide le portate in secondi piatti
+        for (Portata portata : portataList) {
+            if (portata instanceof SecondiPiatti && portata.getTipoDieta() == tipoDietaEnum) {
+                secondiPiatti.add((SecondiPiatti) portata);
+            }
+        }
+        System.out.println( "SECONDI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n" );
+        for (SecondiPiatti secondo : secondiPiatti) {
+            System.out.println(secondo);
+        }
+    }
+
+    /**
      * Print menu.
      */
+
+    //TODO aggiungete i metodi privati corrispondenti qui sotto.
     public void printMenu () {
         System.out.println(this.nomeMenu.toUpperCase() + " " + "(" + getPrezzoMedioMenu() + ")");
         System.out.println();
 
-        for (Portata portata : portataList) {
-            System.out.println(portata);
-        }
+        printSecondiPiatti();
     }
 
     /**
@@ -137,14 +175,11 @@ public class Menu {
      *
      * @param tipoDietaEnum the tipo dieta enum
      */
-    //TODO approfondire
+    //TODO aggiungete i metodi privati corrispondenti qui sotto.
     public void printMenu (DietaEnum tipoDietaEnum){
-        System.out.println(this.nomeMenu + " " + "(" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
+        System.out.println(this.nomeMenu.toUpperCase() + " " + "(" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
+        System.out.println();
 
-        for (Portata portata : portataList) {
-            if (portata.getTipoDieta() == tipoDietaEnum) {
-                System.out.println(portata);
-            }
-        }
+        printSecondiPiatti(tipoDietaEnum);
     }
 }

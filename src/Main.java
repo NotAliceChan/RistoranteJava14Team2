@@ -4,7 +4,7 @@ public class Main {
 
 
 
-        //TODO lasciare solo una gestione unica su menù utilizzando solo una liste di portata
+        //TODO lasciare solo una gestione unica su menù utilizzando solo una lista di portata
 
 /*
         menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50));
@@ -38,7 +38,5 @@ public class Main {
         System.out.println(ColorEnum.BLUE.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + ColorEnum.RESET.getEscapeSequence());
 
         menu.printMenu();
-
-
     }
 }
