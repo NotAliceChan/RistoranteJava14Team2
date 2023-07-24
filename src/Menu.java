@@ -95,27 +95,10 @@ public class Menu {
         int contatore = 0;
 
         for (Portata portata : this.portataList) {
-            switch (tipoDietaEnum) {
-
-                case VEGANO:
-                    if (portata.getTipoDieta() == DietaEnum.VEGANO) {
+                    if (portata.getTipoDieta() == tipoDietaEnum) {
                         prezzoTotale += portata.getPrezzo();
                         contatore++;
                     }
-                    break;
-                case VEGETARIANO:
-                    if (portata.getTipoDieta() == DietaEnum.VEGETARIANO) {
-                        prezzoTotale += portata.getPrezzo();
-                        contatore++;
-                    }
-                    break;
-                case SENZA_GLUTINE:
-                    if (portata.getTipoDieta() == DietaEnum.SENZA_GLUTINE) {
-                        prezzoTotale += portata.getPrezzo();
-                        contatore++;
-                    }
-                    break;
-            }
         }
         return new DecimalFormat("#.00").format(prezzoTotale / contatore);
     }
