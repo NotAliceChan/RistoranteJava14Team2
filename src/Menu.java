@@ -121,6 +121,20 @@ public class Menu {
             System.out.println(secondo);
         }
     }
+    private void printBevande() {
+        List<Bevande> bevande = new ArrayList<>();
+
+
+        for (Portata portata : portataList) {
+            if (portata instanceof Bevande) {
+                bevande.add((Bevande) portata);
+            }
+        }
+        System.out.println("BEVANDE");
+        for (Bevande bevanda : bevande) {
+            System.out.println(bevanda);
+        }
+    }
 
     /**
      * aggiunge ad una lista i secondi piatti della lista Portata in base al tipo di dieta
@@ -151,6 +165,13 @@ public class Menu {
         System.out.println();
 
         printSecondiPiatti();
+        System.out.println();
+        printBevande();
+
+
+
+
+
     }
 
     /**
@@ -164,5 +185,6 @@ public class Menu {
         System.out.println();
 
         printSecondiPiatti(tipoDietaEnum);
+        printBevande();
     }
 }
