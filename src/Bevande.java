@@ -2,7 +2,6 @@
  * The type Bevande.
  */
 public class Bevande extends Portata {
-
     public Bevande(String nome, Double prezzo) {
         super(nome, prezzo);
     }
