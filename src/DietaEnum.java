@@ -1,5 +1,5 @@
 public enum DietaEnum {
-    VEGANO("VEGANO", ColorEnum.RED),
+    VEGANO("VEGANO", ColorEnum.BLUE),
     VEGETARIANO("VEGETARIANO", ColorEnum.GREEN),
     SENZA_GLUTINE("SENZA GLUTINE", ColorEnum.YELLOW);
 
