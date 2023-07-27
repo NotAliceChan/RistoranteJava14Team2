@@ -8,17 +8,19 @@ import java.util.List;
 public class Menu {
 
     //TODO inseriamo un po di campi : chef, e sopratutto tipoMenu
-    private List<Portata> portataList;
+    private List<Portata> listaPortate;
     private String nomeMenu;
+    private TipoMenu tipoMenu;
 
     /**
      * Instantiates a new Menu.
      *
      * @param nomeMenu the nome menu
      */
-    public Menu(String nomeMenu) {
-        this.portataList = new ArrayList<>();
+    public Menu(String nomeMenu, TipoMenu tipoMenu) {
+        this.listaPortate = new ArrayList<>();
         this.nomeMenu = nomeMenu;
+        this.tipoMenu = tipoMenu;
     }
 
     /**
@@ -27,7 +29,7 @@ public class Menu {
      * @return the portata list
      */
     public List<Portata> getPortataList() {
-        return portataList;
+        return listaPortate;
     }
 
     /**
@@ -54,7 +56,7 @@ public class Menu {
      * @param portata the portata
      */
     public void addPortata(Portata portata) {
-        portataList.add(portata);
+        listaPortate.add(portata);
     }
 
     /**
@@ -64,7 +66,7 @@ public class Menu {
      * @param element the element
      */
     public void setPortata(int index, Portata element) {
-        portataList.set(index, element);
+        listaPortate.set(index, element);
     }
 
     /**
@@ -73,18 +75,7 @@ public class Menu {
      * @param index the index
      */
     public void removePortata(int index) {
-        portataList.remove(index);
-    }
-
-    /**
-     * @return la media del prezzo di tutti i piatti, in stringa usando DecimalFormat
-     */
-    private String getPrezzoMedioMenu() {                 // privato perchè lo dobbiamo utilizzare solo nel printMenu)
-        Double prezzoTotale = 0.0;
-        for (Portata portata : this.portataList) {
-            prezzoTotale += portata.getPrezzo();
-        }
-        return new DecimalFormat("#.00").format(prezzoTotale / this.portataList.size()) + " €";
+        listaPortate.remove(index);
     }
 
     /**
@@ -96,7 +87,7 @@ public class Menu {
         Double prezzoTotale = 0.0;
         int contatore = 0;
 
-        for (Portata portata : this.portataList) {
+        for (Portata portata : this.listaPortate) {
             if (portata.getTipoDieta() == tipoDietaEnum) {
                 prezzoTotale += portata.getPrezzo();
                 contatore++;
@@ -106,82 +97,13 @@ public class Menu {
     }
 
     /**
-     * aggiunge ad una lista i primi piatti della lista Portata
-     */
-    private void printPrimiPiatti() {
-        List<PrimiPiatti> primipiatti = new ArrayList<>();
-
-        for (Portata portata : portataList) {
-            if (portata instanceof PrimiPiatti) {
-                primipiatti.add((PrimiPiatti) portata);
-            }
-        }
-        System.out.println("PRIMI PIATTI");
-        for (PrimiPiatti primo : primipiatti) {
-            System.out.println(primo);
-        }
-    }
-
-    /**
-     * aggiunge ad una lista i secondi piatti della lista Portata
-     */
-    private void printSecondiPiatti() {
-        List<SecondiPiatti> secondiPiatti = new ArrayList<>();
-
-        // Divide le portate in secondi piatti
-        for (Portata portata : portataList) {
-            if (portata instanceof SecondiPiatti) {
-                secondiPiatti.add((SecondiPiatti) portata);
-            }
-        }
-        System.out.println("SECONDI PIATTI");
-        for (SecondiPiatti secondo : secondiPiatti) {
-            System.out.println(secondo);
-        }
-    }
-
-    /**
-     * aggiunge ad una lista bevande della lista Portata
-     */
-    private void printBevande() {
-        List<Bevande> bevande = new ArrayList<>();
-
-        for (Portata portata : portataList) {
-            if (portata instanceof Bevande) {
-                bevande.add((Bevande) portata);
-            }
-        }
-        System.out.println("BEVANDE");
-        for (Bevande bevanda : bevande) {
-            System.out.println(bevanda);
-        }
-    }
-
-    /**
-     * aggiunge ad una lista i dessert della lista Portata
-     */
-    private void printDessert() {
-        List<Dessert> desserts = new ArrayList<>();
-
-        for (Portata portata : portataList) {
-            if (portata instanceof Dessert) {
-                desserts.add((Dessert) portata);
-            }
-        }
-        System.out.println("DESSERT");
-        for (Dessert dessert : desserts) {
-            System.out.println(dessert);
-        }
-    }
-
-    /**
      * aggiunge ad una lista i primi piatti della lista Portata in base al tipo di dieta
      */
     private void printPrimiPiatti(DietaEnum tipoDietaEnum) {
         List<PrimiPiatti> primipiatti = new ArrayList<>();
 
         // Divide le portate in secondi piatti
-        for (Portata portata : portataList) {
+        for (Portata portata : listaPortate) {
             if (portata instanceof PrimiPiatti && portata.getTipoDieta() == tipoDietaEnum) {
                 primipiatti.add((PrimiPiatti) portata);
             }
@@ -192,92 +114,38 @@ public class Menu {
         }
     }
 
-    /**
-     * aggiunge ad una lista i secondi piatti della lista Portata in base al tipo di dieta
-     */
-    private void printSecondiPiatti(DietaEnum tipoDietaEnum) {
-        List<SecondiPiatti> secondiPiatti = new ArrayList<>();
-
-        // Divide le portate in secondi piatti
-        for (Portata portata : portataList) {
-            if (portata instanceof SecondiPiatti && portata.getTipoDieta() == tipoDietaEnum) {
-                secondiPiatti.add((SecondiPiatti) portata);
-            }
-        }
-        System.out.println("SECONDI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n");
-        for (SecondiPiatti secondo : secondiPiatti) {
-            System.out.println(secondo);
-        }
-    }
-
-    /**
-     * aggiunge ad una lista dessert della lista Portata in base al tipo di dieta
-     */
-    private void printDessert(DietaEnum tipoDietaEnum) {
-        List<Dessert> desserts = new ArrayList<>();
-
-        for (Portata portata : portataList) {
-            if (portata instanceof Dessert && portata.getTipoDieta() == tipoDietaEnum) {
-                desserts.add((Dessert) portata);
-            }
-        }
-        System.out.println("DESSERT " + "(" + tipoDietaEnum.printWithColor() + ")\n");
-        for (Dessert dessert : desserts) {
-            System.out.println(dessert);
-        }
-    }
-
 
     /**
      * Print menu filtrato.
      *
-     * @param tipoDietaEnum the tipo dieta enum
      */
-    public void printMenu(DietaEnum tipoDietaEnum) {
-        System.out.println(this.nomeMenu.toUpperCase() + " " + "(" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
-        System.out.println();
-        printPrimiPiatti(tipoDietaEnum);
-        System.out.println();
-        printSecondiPiatti(tipoDietaEnum);
-        System.out.println();
-        printDessert(tipoDietaEnum);
-        System.out.println();
-        printBevande();
-    }
-
-    public void printMenu(){
+    public void printMenu(DietaEnum tipoDietaEnum){
 
         System.out.print("TIPO MENU: ");
-        System.out.println(tipoMenu.getName());
+        System.out.println(tipoMenu.getNome());
 
         System.out.println("PRIMI PIATTI: \n");
         for (Portata p : listaPortate) {
-            if (p instanceof PrimoPiatto) {
-                p.printPortata(this.colorEnum);
+            if (p instanceof PrimiPiatti) {
+                p.printPortata();
             }
         }
         System.out.println("\nSECONDI PIATTI: \n");
         for (Portata p: listaPortate) {
-            if (p.getClass() == SecondoPiatto.class){
-                p.printPortata(this.colorEnum);
+            if (p.getClass() == SecondiPiatti.class){
+                p.printPortata();
             }
         }
         System.out.println("\nDESSERT: \n");
         for (Portata p: listaPortate) {
             if (p.getClass() == Dessert.class){
-                p.printPortata(this.colorEnum);
+                p.printPortata();
             }
         }
         System.out.println("\nBEVANDE: \n");
         for (Portata p: listaPortate) {
-            if (p.getClass() == Bevanda.class){
-                p.printPortata(this.colorEnum);
-            }
-        }
-        System.out.println("\nAPERITIVI: \n");
-        for (Portata p: listaPortate) {
-            if (p.getClass() == Aperitivi.class){
-                p.printPortata(this.colorEnum);
+            if (p.getClass() == Bevande.class){
+                p.printPortata();
             }
         }
     }

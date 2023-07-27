@@ -7,17 +7,14 @@ public class Bevande extends Portata {
     private Integer gradoAlcolico;
 
 
-    public Bevande(String nome, Double prezzo) {
-        super(nome, prezzo);
-    }
-
-    public Bevande(String nome, Double prezzo, DietaEnum tipoDietaEnum) {
+    public Bevande(String nome, Double prezzo, Integer gradoAlcolico, DietaEnum tipoDietaEnum) {
         super(nome, prezzo, tipoDietaEnum);
+        this.gradoAlcolico = gradoAlcolico;
     }
 
     @Override
-    public void print() {
-        super.print();
-        System.out.println("altri field");
+    public void printPortata() {
+        super.printPortata();
+        System.out.println("Grado alcolico: " + this.gradoAlcolico + "%\n");
     }
 }

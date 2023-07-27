@@ -3,10 +3,6 @@
  */
 public class PrimiPiatti extends Portata {
 
-    public PrimiPiatti(String nome, Double prezzo) {
-        super(nome, prezzo);
-    }
-
     public PrimiPiatti(String nome, Double prezzo, DietaEnum tipoDietaEnum) {
         super(nome, prezzo, tipoDietaEnum);
     }

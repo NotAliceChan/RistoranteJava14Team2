@@ -76,19 +76,19 @@ public class Portata {
 
     @Override
     public String toString() {
-        if (tipoDietaEnum ==null){
-            return this.nome + " - " + this.prezzo + " € ";
-        } else {
-            return this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")";
-        }
-    }
-
-    public void print(){
-        System.out.println(this.nome+ "stampare tutte le info");
+        return "Portata{" +
+                "nome='" + nome + '\'' +
+                ", prezzo=" + prezzo +
+                ", tipoDietaEnum=" + tipoDietaEnum +
+                '}';
     }
 
     //TODO sistemare
-    public void print(ColorEnum colorEnum){
-        System.out.println(this.nome+ "stampare tutte le info"+ colorEnum.getEscapeSequence());
+    public void printPortata(){
+        if(this.tipoDietaEnum == DietaEnum.EMPTY) {
+            System.out.println(this.nome + " - " + this.prezzo + " € ");
+        }else {
+            System.out.println(this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")");
+        }
     }
 }
