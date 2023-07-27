@@ -21,13 +21,10 @@ public class Dessert extends Portata {
         this.coldDessert = coldDessert;
     }
 
-    public Dessert(String nome, Double prezzo, Integer levelOfSweetness, boolean coldDessert ) {
-        super(nome, prezzo);
+    public Dessert(String nome, Double prezzo,DietaEnum tipoDietaEnum, Integer levelOfSweetness, boolean coldDessert ) {
+        super(nome, prezzo, tipoDietaEnum);
         this.levelOfSweetness = levelOfSweetness;
         this.coldDessert = coldDessert;
     }
 
-    public Dessert(String nome, Double prezzo, DietaEnum tipoDietaEnum) {
-        super(nome, prezzo, tipoDietaEnum);
-    }
 }

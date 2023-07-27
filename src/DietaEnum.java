@@ -3,9 +3,8 @@ public enum DietaEnum {
     //TODO inserire un emptyValue
     VEGANO("VEGANO", ColorEnum.BLUE),
     VEGETARIANO("VEGETARIANO", ColorEnum.GREEN),
-    SENZA_GLUTINE("SENZA GLUTINE", ColorEnum.YELLOW);
-
-
+    SENZA_GLUTINE("SENZA GLUTINE", ColorEnum.YELLOW),
+    EMPTY(" " ,ColorEnum.RESET);
 
     private String info;
     private ColorEnum color;
