@@ -33,5 +33,7 @@ public class Main {
         System.out.println("\n" + ColorEnum.PINK.getEscapeSequence() + "Chef : Alice\n" + ColorEnum.RESET.getEscapeSequence());
 
         menu.printMenu();
+
+
     }
 }

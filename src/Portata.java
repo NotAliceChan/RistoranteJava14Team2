@@ -6,16 +6,6 @@ public class Portata {
     private Double prezzo;
     private DietaEnum tipoDietaEnum;
 
-    /**
-     * Instantiates a new Portata.
-     *
-     * @param nome   the nome
-     * @param prezzo the prezzo
-     */
-    public Portata(String nome, Double prezzo) {
-        this.nome = nome;
-        this.prezzo = prezzo;
-    }
 
     /**
      * Instantiates a new Portata.
@@ -91,5 +81,14 @@ public class Portata {
         } else {
             return this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")";
         }
+    }
+
+    public void print(){
+        System.out.println(this.nome+ "stampare tutte le info");
+    }
+
+    //TODO sistemare
+    public void print(ColorEnum colorEnum){
+        System.out.println(this.nome+ "stampare tutte le info"+ colorEnum.getEscapeSequence());
     }
 }

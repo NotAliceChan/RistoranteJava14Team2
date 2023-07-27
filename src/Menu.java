@@ -6,6 +6,8 @@ import java.util.List;
  * The type Menu.
  */
 public class Menu {
+
+    //TODO inseriamo un po di campi : chef, e sopratutto tipoMenu
     private List<Portata> portataList;
     private String nomeMenu;
 
@@ -51,7 +53,7 @@ public class Menu {
      *
      * @param portata the portata
      */
-    public void addPortata(Portata portata){
+    public void addPortata(Portata portata) {
         portataList.add(portata);
     }
 
@@ -61,7 +63,7 @@ public class Menu {
      * @param index   the index
      * @param element the element
      */
-    public void setPortata(int index, Portata element){
+    public void setPortata(int index, Portata element) {
         portataList.set(index, element);
     }
 
@@ -70,14 +72,14 @@ public class Menu {
      *
      * @param index the index
      */
-    public void removePortata(int index){
+    public void removePortata(int index) {
         portataList.remove(index);
     }
 
     /**
      * @return la media del prezzo di tutti i piatti, in stringa usando DecimalFormat
      */
-    private  String getPrezzoMedioMenu (){                 // privato perchè lo dobbiamo utilizzare solo nel printMenu)
+    private String getPrezzoMedioMenu() {                 // privato perchè lo dobbiamo utilizzare solo nel printMenu)
         Double prezzoTotale = 0.0;
         for (Portata portata : this.portataList) {
             prezzoTotale += portata.getPrezzo();
@@ -86,21 +88,21 @@ public class Menu {
     }
 
     /**
-     *
      * @param tipoDietaEnum
      * @return la media del prezzo dei piatti vegani, vegetariani o senza glutine, in stringa usando DecimalFormat
      */
-    private  String getPrezzoMedioMenu (DietaEnum tipoDietaEnum) {                 // privato perchè lo dobbiamo utilizzare solo nel printMenu)
+    private String getPrezzoMedioMenu(DietaEnum tipoDietaEnum) {
+        // privato perchè lo dobbiamo utilizzare solo nel printMenu)
         Double prezzoTotale = 0.0;
         int contatore = 0;
 
         for (Portata portata : this.portataList) {
-                    if (portata.getTipoDieta() == tipoDietaEnum) {
-                        prezzoTotale += portata.getPrezzo();
-                        contatore++;
-                    }
+            if (portata.getTipoDieta() == tipoDietaEnum) {
+                prezzoTotale += portata.getPrezzo();
+                contatore++;
+            }
         }
-        return new DecimalFormat("#.00").format(prezzoTotale / contatore ) + " €";
+        return new DecimalFormat("#.00").format(prezzoTotale / contatore) + " €";
     }
 
     /**
@@ -184,7 +186,7 @@ public class Menu {
                 primipiatti.add((PrimiPiatti) portata);
             }
         }
-        System.out.println( "PRIMI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n" );
+        System.out.println("PRIMI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n");
         for (PrimiPiatti primo : primipiatti) {
             System.out.println(primo);
         }
@@ -202,7 +204,7 @@ public class Menu {
                 secondiPiatti.add((SecondiPiatti) portata);
             }
         }
-        System.out.println( "SECONDI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n" );
+        System.out.println("SECONDI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n");
         for (SecondiPiatti secondo : secondiPiatti) {
             System.out.println(secondo);
         }
@@ -219,33 +221,19 @@ public class Menu {
                 desserts.add((Dessert) portata);
             }
         }
-        System.out.println( "DESSERT " + "(" + tipoDietaEnum.printWithColor() + ")\n" );
+        System.out.println("DESSERT " + "(" + tipoDietaEnum.printWithColor() + ")\n");
         for (Dessert dessert : desserts) {
             System.out.println(dessert);
         }
     }
 
-    /**
-     * Print menu.
-     */
-    public void printMenu () {
-        System.out.println(this.nomeMenu.toUpperCase() + " " + "(" + getPrezzoMedioMenu() + ")");
-        System.out.println();
-        printPrimiPiatti();
-        System.out.println();
-        printSecondiPiatti();
-        System.out.println();
-        printDessert();
-        System.out.println();
-        printBevande();
-    }
 
     /**
      * Print menu filtrato.
      *
      * @param tipoDietaEnum the tipo dieta enum
      */
-    public void printMenu (DietaEnum tipoDietaEnum){
+    public void printMenu(DietaEnum tipoDietaEnum) {
         System.out.println(this.nomeMenu.toUpperCase() + " " + "(" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
         System.out.println();
         printPrimiPiatti(tipoDietaEnum);
@@ -256,4 +244,42 @@ public class Menu {
         System.out.println();
         printBevande();
     }
+
+    public void printMenu(){
+
+        System.out.print("TIPO MENU: ");
+        System.out.println(tipoMenu.getName());
+
+        System.out.println("PRIMI PIATTI: \n");
+        for (Portata p : listaPortate) {
+            if (p instanceof PrimoPiatto) {
+                p.printPortata(this.colorEnum);
+            }
+        }
+        System.out.println("\nSECONDI PIATTI: \n");
+        for (Portata p: listaPortate) {
+            if (p.getClass() == SecondoPiatto.class){
+                p.printPortata(this.colorEnum);
+            }
+        }
+        System.out.println("\nDESSERT: \n");
+        for (Portata p: listaPortate) {
+            if (p.getClass() == Dessert.class){
+                p.printPortata(this.colorEnum);
+            }
+        }
+        System.out.println("\nBEVANDE: \n");
+        for (Portata p: listaPortate) {
+            if (p.getClass() == Bevanda.class){
+                p.printPortata(this.colorEnum);
+            }
+        }
+        System.out.println("\nAPERITIVI: \n");
+        for (Portata p: listaPortate) {
+            if (p.getClass() == Aperitivi.class){
+                p.printPortata(this.colorEnum);
+            }
+        }
+    }
+
 }
