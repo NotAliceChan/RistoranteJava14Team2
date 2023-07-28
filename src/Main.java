@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu("menu del giorno", TipoMenu.ALTRO);
+        Ristorante ristorante = new Ristorante("Ristorante la Sirenetta", "Via Fantasia", true);
+        Menu menu = new Menu("menu del giorno", "Alice" ,TipoMenu.ALTRO);
 
         menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, DietaEnum.EMPTY));
         menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, DietaEnum.EMPTY));
@@ -33,7 +34,7 @@ public class Main {
 
         System.out.println("\n" + ColorEnum.PINK.getEscapeSequence() + "Chef : Alice\n" + ColorEnum.RESET.getEscapeSequence());
 
-        menu.printMenu(DietaEnum.EMPTY);
+        menu.printMenu(DietaEnum.VEGANO);
 
 
     }

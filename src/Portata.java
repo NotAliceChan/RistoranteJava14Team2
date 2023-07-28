@@ -82,13 +82,12 @@ public class Portata {
                 ", tipoDietaEnum=" + tipoDietaEnum +
                 '}';
     }
-
-    //TODO sistemare
+    // TODO fatto
     public void printPortata(){
         if(this.tipoDietaEnum == DietaEnum.EMPTY) {
-            System.out.println(this.nome + " - " + this.prezzo + " € ");
+            System.out.println("# " + this.nome + " - " + this.prezzo + " € ");
         }else {
-            System.out.println(this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")");
+            System.out.println("# " + this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")");
         }
     }
 }

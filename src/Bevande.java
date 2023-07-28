@@ -15,6 +15,10 @@ public class Bevande extends Portata {
     @Override
     public void printPortata() {
         super.printPortata();
-        System.out.println("Grado alcolico: " + this.gradoAlcolico + "%\n");
+        if(this.gradoAlcolico == 0){
+            System.out.println();
+        } else {
+            System.out.println("Grado alcolico: " + this.gradoAlcolico + "%\n");
+        }
     }
 }

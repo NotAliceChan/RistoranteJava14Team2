@@ -10,6 +10,7 @@ public class Menu {
     //TODO inseriamo un po di campi : chef, e sopratutto tipoMenu
     private List<Portata> listaPortate;
     private String nomeMenu;
+    private String chef;
     private TipoMenu tipoMenu;
 
     /**
@@ -17,9 +18,10 @@ public class Menu {
      *
      * @param nomeMenu the nome menu
      */
-    public Menu(String nomeMenu, TipoMenu tipoMenu) {
+    public Menu(String nomeMenu, String  chef, TipoMenu tipoMenu) {
         this.listaPortate = new ArrayList<>();
         this.nomeMenu = nomeMenu;
+        this.chef = chef;
         this.tipoMenu = tipoMenu;
     }
 
@@ -28,7 +30,7 @@ public class Menu {
      *
      * @return the portata list
      */
-    public List<Portata> getPortataList() {
+    public List<Portata> getListaPortate() {
         return listaPortate;
     }
 
@@ -48,6 +50,42 @@ public class Menu {
      */
     public void setNomeMenu(String nomeMenu) {
         this.nomeMenu = nomeMenu;
+    }
+
+    /**
+     * Gets chef.
+     *
+     * @return the chef
+     */
+    public String getChef() {
+        return chef;
+    }
+
+    /**
+     * Sets chef.
+     *
+     * @param chef the chef
+     */
+    public void setChef(String chef) {
+        this.chef = chef;
+    }
+
+    /**
+     * Gets tipo menu.
+     *
+     * @return the tipo menu
+     */
+    public TipoMenu getTipoMenu() {
+        return tipoMenu;
+    }
+
+    /**
+     * Sets tipo menu.
+     *
+     * @param tipoMenu the tipo menu
+     */
+    public void setTipoMenu(TipoMenu tipoMenu) {
+        this.tipoMenu = tipoMenu;
     }
 
     /**
@@ -83,44 +121,22 @@ public class Menu {
      * @return la media del prezzo dei piatti vegani, vegetariani o senza glutine, in stringa usando DecimalFormat
      */
     private String getPrezzoMedioMenu(DietaEnum tipoDietaEnum) {
-        // privato perchè lo dobbiamo utilizzare solo nel printMenu)
         Double prezzoTotale = 0.0;
         int contatore = 0;
 
         for (Portata portata : this.listaPortate) {
-            if (portata.getTipoDieta() == tipoDietaEnum) {
-                prezzoTotale += portata.getPrezzo();
-                contatore++;
-            }
+            prezzoTotale += portata.getPrezzo();
+            contatore++;
         }
         return new DecimalFormat("#.00").format(prezzoTotale / contatore) + " €";
     }
-
-    /**
-     * aggiunge ad una lista i primi piatti della lista Portata in base al tipo di dieta
-     */
-    private void printPrimiPiatti(DietaEnum tipoDietaEnum) {
-        List<PrimiPiatti> primipiatti = new ArrayList<>();
-
-        // Divide le portate in secondi piatti
-        for (Portata portata : listaPortate) {
-            if (portata instanceof PrimiPiatti && portata.getTipoDieta() == tipoDietaEnum) {
-                primipiatti.add((PrimiPiatti) portata);
-            }
-        }
-        System.out.println("PRIMI PIATTI " + "(" + tipoDietaEnum.printWithColor() + ")\n");
-        for (PrimiPiatti primo : primipiatti) {
-            System.out.println(primo);
-        }
-    }
-
 
     /**
      * Print menu filtrato.
      *
      */
     public void printMenu(DietaEnum tipoDietaEnum){
-
+        System.out.println(this.nomeMenu + " (" + getPrezzoMedioMenu(tipoDietaEnum)+ ")");
         System.out.print("TIPO MENU: ");
         System.out.println(tipoMenu.getNome());
 
@@ -149,5 +165,4 @@ public class Menu {
             }
         }
     }
-
 }

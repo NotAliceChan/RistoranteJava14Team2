@@ -7,6 +7,7 @@ public enum TipoMenu {
 
     private String tipoMenu;
     TipoMenu(String tipoMenu ) {
+        this.tipoMenu = tipoMenu;
     }
     public String getNome(){
         return tipoMenu;
