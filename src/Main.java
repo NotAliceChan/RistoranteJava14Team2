@@ -34,6 +34,6 @@ public class Main {
 
         System.out.println("\n" + ColorEnum.PINK.getEscapeSequence() + "Chef : Alice\n" + ColorEnum.RESET.getEscapeSequence());
 
-        menu.printMenu(DietaEnum.VEGANO);
+        menu.printMenu(DietaEnum.EMPTY);
     }
 }

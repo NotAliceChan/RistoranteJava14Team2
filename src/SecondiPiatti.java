@@ -31,6 +31,6 @@ public class SecondiPiatti extends Portata {
     public void printPortata() {
         super.printPortata();
         System.out.println("Tempo di preparazione: " + tempoDiPreparazione + " (min)");
-        System.out.println("Origine Piatto :" + origine + "\n");
+        System.out.println("Origine Piatto: " + origine + "\n");
     }
 }

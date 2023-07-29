@@ -31,6 +31,6 @@ public class Dessert extends Portata {
     public void printPortata() {
         super.printPortata();
         System.out.println( "Calorie : "+ this.amountOfCalories );
-        System.out.println(containsAlcohol ? "Questo dolce contiene Alcol" : "Questo dolce non contiene Alcol");
+        System.out.println(containsAlcohol ? "Questo dolce contiene Alcol\n" : "Questo dolce non contiene Alcol\n");
     }
 }
