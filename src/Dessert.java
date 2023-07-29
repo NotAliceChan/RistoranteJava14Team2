@@ -2,29 +2,35 @@
  * The type Dessert.
  */
 public class Dessert extends Portata {
-    private Integer levelOfSweetness;
-    private  boolean  coldDessert;
+    private  Double  amountOfCalories;
+    private boolean containsAlcohol;
 
-    public Integer getLevelOfSweetness() {
-        return levelOfSweetness;
+    public boolean isContainsAlcohol() {
+        return containsAlcohol;
     }
 
-    public boolean getColdDessert() {
-        return coldDessert;
+    public void setContainsAlcohol(boolean containsAlcohol) {
+        this.containsAlcohol = containsAlcohol;
     }
 
-    public void setLevelOfSweetness(Integer levelOfSweetness) {
-        this.levelOfSweetness = levelOfSweetness;
+    public Double getAmountOfCalories() {
+        return amountOfCalories;
     }
 
-    public void setColdDessert(boolean coldDessert) {
-        this.coldDessert = coldDessert;
+    public void setAmountOfCalories(Double amountOfCalories) {
+        this.amountOfCalories = amountOfCalories;
     }
 
-    public Dessert(String nome, Double prezzo,DietaEnum tipoDietaEnum, Integer levelOfSweetness, boolean coldDessert ) {
+    public Dessert(String nome, Double prezzo, DietaEnum tipoDietaEnum, boolean isItAlcoholic, Double  amountOfCalories ) {
         super(nome, prezzo, tipoDietaEnum);
-        this.levelOfSweetness = levelOfSweetness;
-        this.coldDessert = coldDessert;
+        this.containsAlcohol = isItAlcoholic;
+        this.amountOfCalories = amountOfCalories;
     }
 
+    @Override
+    public void printPortata() {
+        super.printPortata();
+        System.out.println( "Calorie : "+ this.amountOfCalories );
+        System.out.println(containsAlcohol ? "Questo dolce contiene Alcol" : "Questo dolce non contiene Alcol");
+    }
 }

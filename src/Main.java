@@ -24,18 +24,16 @@ public class Main {
         menu.addPortata(new Bevande("Vino Bianco Team1Java (Produzione propria) ", 14.50, 14, DietaEnum.EMPTY));
         menu.addPortata(new Bevande("Vino Ambrato Team1Java (Produzione propria) ", 16.50,13, DietaEnum.EMPTY));
 
-        menu.addPortata(new Dessert("Tiramisù", 8.00,DietaEnum.VEGANO,10,true));
-        menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,DietaEnum.VEGANO,7,false));
-        menu.addPortata(new Dessert("Torta della nonna", 10.90,DietaEnum.VEGANO,10,true));
-        menu.addPortata(new Dessert("Mazzamorra morada", 6.70,DietaEnum.VEGETARIANO, 5, false));
-        menu.addPortata(new Dessert("Crostata Primavera", 12.99, DietaEnum.SENZA_GLUTINE,4,true));
+        menu.addPortata(new Dessert("Tiramisù", 8.00,DietaEnum.VEGANO,false,420d));
+        menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,DietaEnum.VEGANO,false,500d));
+        menu.addPortata(new Dessert("Babà", 12.99, DietaEnum.SENZA_GLUTINE,true,320d));
+        menu.addPortata(new Dessert("Torta della nonna", 10.90,DietaEnum.VEGANO,false,300d));
+        menu.addPortata(new Dessert("Mazzamorra morada", 6.70,DietaEnum.VEGETARIANO, false, 450d));
 
         System.out.println(ColorEnum.YELLOW.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + ColorEnum.RESET.getEscapeSequence());
 
         System.out.println("\n" + ColorEnum.PINK.getEscapeSequence() + "Chef : Alice\n" + ColorEnum.RESET.getEscapeSequence());
 
         menu.printMenu(DietaEnum.VEGANO);
-
-
     }
 }

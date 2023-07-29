@@ -18,9 +18,10 @@ public class Ristorante {
         this.listaMenu.add(menu);
     }
 
-    public void printMenu(){
+    public void printInfo(){
+        System.out.println("Ristorante : " + this.nome + "\nIndirizzo : " + this.indirizzo + "\nGuida MIchelin : " + this.itsMichelinGuide);
         for (Menu menu : listaMenu) {
-
+            System.out.println( "Nome menu : " + menu.getNomeMenu()  + "\nChef  : "+ menu.getChef() + "\nTipo menu : " + menu.getTipoMenu() + "\nPortate : " + menu.getListaPortate());
         }
     }
 }
