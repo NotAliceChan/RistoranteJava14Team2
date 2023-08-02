@@ -16,13 +16,13 @@ public class Main {
         menu.addPortata(new SecondiPiatti("Tempura di verdure viola", 7.99,5, "Giappone", DietaEnum.VEGETARIANO));
         menu.addPortata(new SecondiPiatti("Tofu dorato con cipollotti", 24.99,3, "Giappione", DietaEnum.SENZA_GLUTINE));
 
-        menu.addPortata(new Bevande("Acqua Naturale", 2.50,0, DietaEnum.EMPTY));
-        menu.addPortata(new Bevande("Coca cola", 3.00, 0, DietaEnum.EMPTY));
-        menu.addPortata(new Bevande("Birra Peroni", 2.00,3, DietaEnum.EMPTY));
-        menu.addPortata(new Bevande("Fanta", 3.00,0, DietaEnum.EMPTY));
-        menu.addPortata(new Bevande("Vino Rosso Fazio", 6.50,15, DietaEnum.EMPTY));
-        menu.addPortata(new Bevande("Vino Bianco Team1Java (Produzione propria) ", 14.50, 14, DietaEnum.EMPTY));
-        menu.addPortata(new Bevande("Vino Ambrato Team1Java (Produzione propria) ", 16.50,13, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Acqua Naturale", 2.50,0,true, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Coca cola", 3.00, 0,true, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Birra Peroni", 2.00,3,true, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Fanta", 3.00,0,true, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Vino Rosso Fazio", 6.50,15,false, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Vino Bianco Team1Java (Produzione propria) ", 14.50, 14,true, DietaEnum.EMPTY));
+        menu.addPortata(new Bevande("Vino Ambrato Team1Java (Produzione propria) ", 16.50,13,false, DietaEnum.EMPTY));
 
         menu.addPortata(new Dessert("Tiramisù", 8.00,DietaEnum.VEGANO,false,420d));
         menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,DietaEnum.VEGANO,false,500d));
