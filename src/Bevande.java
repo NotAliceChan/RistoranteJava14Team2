@@ -3,6 +3,8 @@
  */
 public class Bevande extends Portata {
 
+
+
     //TODO tutte le classi figli di portate devono avere almeno due campi in più
     private Integer gradoAlcolico;
     private Boolean isCold;

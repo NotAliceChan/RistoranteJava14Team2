@@ -3,11 +3,11 @@ public class Main {
         Ristorante ristorante = new Ristorante("Ristorante la Sirenetta", "Via Fantasia", true);
         Menu menu = new Menu("menu del giorno", "Alice" ,TipoMenu.ALTRO);
 
-        menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, DietaEnum.EMPTY));
-        menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, DietaEnum.EMPTY));
-        menu.addPortata(new PrimiPiatti("Salmone marinato al genmaicha e al coriandolo", 22.90, DietaEnum.SENZA_GLUTINE) );
-        menu.addPortata(new PrimiPiatti("Ramen Vegano", 14.55, DietaEnum.VEGANO));
-        menu.addPortata(new PrimiPiatti("Minestra di miso ai germogli", 16.75, DietaEnum.VEGETARIANO));
+        menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, DietaEnum.EMPTY, 120, true));
+        menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, DietaEnum.EMPTY, 201, true));
+        menu.addPortata(new PrimiPiatti("Salmone marinato al genmaicha e al coriandolo", 22.90, DietaEnum.SENZA_GLUTINE, 230, false));
+        menu.addPortata(new PrimiPiatti("Ramen Vegano", 14.55, DietaEnum.VEGANO, 70, false));
+        menu.addPortata(new PrimiPiatti("Minestra di miso ai germogli", 16.75, DietaEnum.VEGETARIANO, 198, false));
 
         menu.addPortata(new SecondiPiatti("Insalata di Polpo e Patate", 18.80, 20, "Italia", DietaEnum.EMPTY));
         menu.addPortata(new SecondiPiatti("Salmone Grigliato", 25.90, 7, "Italia",DietaEnum.EMPTY));
@@ -30,10 +30,8 @@ public class Main {
         menu.addPortata(new Dessert("Torta della nonna", 10.90,DietaEnum.VEGANO,false,300d));
         menu.addPortata(new Dessert("Mazzamorra morada", 6.70,DietaEnum.VEGETARIANO, false, 450d));
 
-        System.out.println(ColorEnum.YELLOW.getEscapeSequence() + "RISTORANTE LA SIRENETTA\n" + ColorEnum.RESET.getEscapeSequence());
+        ristorante.addMenu(menu);
+        ristorante.printInfo();
 
-        System.out.println("\n" + ColorEnum.PINK.getEscapeSequence() + "Chef : Alice\n" + ColorEnum.RESET.getEscapeSequence());
-
-        menu.printMenu(DietaEnum.EMPTY);
     }
 }
