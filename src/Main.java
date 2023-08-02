@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
         Ristorante ristorante = new Ristorante("Ristorante la Sirenetta", "Via Fantasia", true);
         Menu menu = new Menu("menu del giorno", "Alice" ,TipoMenu.ALTRO);
+        ristorante.addMenu(menu);
 
         menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, DietaEnum.EMPTY, 120, true));
         menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, DietaEnum.EMPTY, 201, true));
@@ -30,8 +31,6 @@ public class Main {
         menu.addPortata(new Dessert("Torta della nonna", 10.90,DietaEnum.VEGANO,false,300d));
         menu.addPortata(new Dessert("Mazzamorra morada", 6.70,DietaEnum.VEGETARIANO, false, 450d));
 
-        ristorante.addMenu(menu);
         ristorante.printInfo();
-
     }
 }

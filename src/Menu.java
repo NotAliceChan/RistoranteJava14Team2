@@ -6,8 +6,6 @@ import java.util.List;
  * The type Menu.
  */
 public class Menu {
-
-    //TODO inseriamo un po di campi : chef, e sopratutto tipoMenu
     private List<Portata> listaPortate;
     private String nomeMenu;
     private String chef;
@@ -137,9 +135,10 @@ public class Menu {
      */
     public void printMenu(DietaEnum tipoDietaEnum){
 
-        System.out.println(this.nomeMenu + " (" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
+        System.out.println(this.nomeMenu.toUpperCase() + " (" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
         System.out.print("TIPO MENU: ");
         System.out.println(tipoMenu.getNome());
+        System.out.println();
 
         if(tipoDietaEnum == DietaEnum.EMPTY) {
             System.out.println("PRIMI PIATTI: \n");
