@@ -149,19 +149,19 @@ public class Menu {
             }
             System.out.println("\nSECONDI PIATTI: \n");
             for (Portata p : listaPortate) {
-                if (p.getClass() == SecondiPiatti.class) {
+                if (p instanceof SecondiPiatti) {
                     p.printPortata();
                 }
             }
             System.out.println("\nDESSERT: \n");
             for (Portata p : listaPortate) {
-                if (p.getClass() == Dessert.class) {
+                if (p instanceof Dessert) {
                     p.printPortata();
                 }
             }
             System.out.println("\nBEVANDE: \n");
             for (Portata p : listaPortate) {
-                if (p.getClass() == Bevande.class) {
+                if (p instanceof Bevande) {
                     p.printPortata();
                 }
             }
@@ -176,19 +176,19 @@ public class Menu {
             }
             System.out.println("\nSECONDI PIATTI: \n");
             for (Portata p : listaPortate) {
-                if (p.getClass() == SecondiPiatti.class && p.getTipoDieta() == tipoDietaEnum) {
+                if (p instanceof SecondiPiatti && p.getTipoDieta() == tipoDietaEnum) {
                     p.printPortata();
                 }
             }
             System.out.println("\nDESSERT: \n");
             for (Portata p : listaPortate) {
-                if (p.getClass() == Dessert.class && p.getTipoDieta() == tipoDietaEnum) {
+                if (p instanceof Bevande && p.getTipoDieta() == tipoDietaEnum) {
                     p.printPortata();
                 }
             }
             System.out.println("\nBEVANDE: \n");
             for (Portata p : listaPortate) {
-                if (p.getClass() == Bevande.class) {
+                if (p instanceof Dessert) {
                     p.printPortata();
                 }
             }

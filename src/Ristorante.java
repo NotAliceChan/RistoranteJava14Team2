@@ -7,7 +7,7 @@ import java.util.List;
 public class Ristorante {
     private String nome;
     private String indirizzo;
-    private boolean itsMichelinGuide;
+    private Boolean michelinGuide;
     private List<Menu>  listaMenu;
 
     /**
@@ -15,12 +15,12 @@ public class Ristorante {
      *
      * @param nome             the nome
      * @param indirizzo        the indirizzo
-     * @param itsMichelinGuide the its michelin guide
+     * @param MichelinGuide the its michelin guide
      */
-    public Ristorante(String nome, String indirizzo, boolean itsMichelinGuide) {
+    public Ristorante(String nome, String indirizzo, boolean MichelinGuide) {
         this.nome = nome;
         this.indirizzo = indirizzo;
-        this.itsMichelinGuide = itsMichelinGuide;
+        this.michelinGuide = MichelinGuide;
         this.listaMenu = new ArrayList<>();
     }
 
@@ -65,17 +65,17 @@ public class Ristorante {
      *
      * @return the boolean
      */
-    public boolean isItsMichelinGuide() {
-        return itsMichelinGuide;
+    public Boolean isMichelinGuide() {
+        return michelinGuide;
     }
 
     /**
      * Sets its michelin guide.
      *
-     * @param itsMichelinGuide the its michelin guide
+     * @param michelinGuide the its michelin guide
      */
-    public void setItsMichelinGuide(boolean itsMichelinGuide) {
-        this.itsMichelinGuide = itsMichelinGuide;
+    public void setMichelinGuide(Boolean michelinGuide) {
+        this.michelinGuide = michelinGuide;
     }
 
     /**
@@ -91,7 +91,8 @@ public class Ristorante {
      * Print info.
      */
     public void printInfo(){
-        System.out.println("Ristorante : " + this.nome + "\nIndirizzo : " + this.indirizzo + "\nGuida MIchelin : " + this.itsMichelinGuide);
+        System.out.println("Ristorante : " + this.nome + "\nIndirizzo : " + this.indirizzo  +
+                (michelinGuide ? "\nQuesto ristorante è presente sulla guida Michelin" : "\nQuesto ristorante non è presente sulla guida Michelin"));
         for (Menu menu : listaMenu) {
             System.out.println( "Nome menu : " + menu.getNomeMenu()  + "\nChef  : "+ menu.getChef() + "\nTipo menu : " + menu.getTipoMenu());
             System.out.println();

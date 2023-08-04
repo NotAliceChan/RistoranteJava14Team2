@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Ristorante ristorante = new Ristorante("Ristorante la Sirenetta", "Via Fantasia", true);
+        Ristorante laSirenetta = new Ristorante("La Sirenetta", "Via Fantasia", true);
         Menu menu = new Menu("menu del giorno", "Alice" ,TipoMenu.ALTRO);
-        ristorante.addMenu(menu);
+        laSirenetta.addMenu(menu);
 
         menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, DietaEnum.EMPTY, 120, true));
         menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, DietaEnum.EMPTY, 201, true));
@@ -25,12 +25,12 @@ public class Main {
         menu.addPortata(new Bevande("Vino Bianco Team1Java (Produzione propria) ", 14.50, 14,true, DietaEnum.EMPTY));
         menu.addPortata(new Bevande("Vino Ambrato Team1Java (Produzione propria) ", 16.50,13,false, DietaEnum.EMPTY));
 
-        menu.addPortata(new Dessert("Tiramisù", 8.00,DietaEnum.VEGANO,false,420d));
-        menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,DietaEnum.VEGANO,false,500d));
-        menu.addPortata(new Dessert("Babà", 12.99, DietaEnum.SENZA_GLUTINE,true,320d));
-        menu.addPortata(new Dessert("Torta della nonna", 10.90,DietaEnum.VEGANO,false,300d));
-        menu.addPortata(new Dessert("Mazzamorra morada", 6.70,DietaEnum.VEGETARIANO, false, 450d));
+        menu.addPortata(new Dessert("Tiramisù", 8.00,DietaEnum.VEGANO,false,420d, false));
+        menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,DietaEnum.VEGANO,false,500d, false));
+        menu.addPortata(new Dessert("Babà", 12.99, DietaEnum.SENZA_GLUTINE,true,320d, false));
+        menu.addPortata(new Dessert("Torta della nonna", 10.90,DietaEnum.VEGANO,false,300d, false));
+        menu.addPortata(new Dessert("Mazzamorra morada", 6.70,DietaEnum.VEGETARIANO, false, 450d, false));
 
-        ristorante.printInfo();
+       laSirenetta.printInfo();
     }
 }

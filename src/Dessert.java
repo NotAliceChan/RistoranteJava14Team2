@@ -3,14 +3,23 @@
  */
 public class Dessert extends Portata {
     private  Double  amountOfCalories;
-    private boolean containsAlcohol;
+    private Boolean alcoholic;
+    private Boolean glutenFree;
 
-    public boolean isContainsAlcohol() {
-        return containsAlcohol;
+    public Boolean isAlcoholic() {
+        return alcoholic;
     }
 
-    public void setContainsAlcohol(boolean containsAlcohol) {
-        this.containsAlcohol = containsAlcohol;
+    public void setAlcoholic(Boolean alcoholic) {
+        this.alcoholic = alcoholic;
+    }
+
+    public Boolean getGlutenFree() {
+        return glutenFree;
+    }
+
+    public void setGlutenFree(Boolean glutenFree) {
+        this.glutenFree = glutenFree;
     }
 
     public Double getAmountOfCalories() {
@@ -21,16 +30,17 @@ public class Dessert extends Portata {
         this.amountOfCalories = amountOfCalories;
     }
 
-    public Dessert(String nome, Double prezzo, DietaEnum tipoDietaEnum, boolean isItAlcoholic, Double  amountOfCalories ) {
+    public Dessert(String nome, Double prezzo, DietaEnum tipoDietaEnum, Boolean alcoholic, Double amountOfCalories, Boolean glutenFree) {
         super(nome, prezzo, tipoDietaEnum);
-        this.containsAlcohol = isItAlcoholic;
+        this.alcoholic = alcoholic;
         this.amountOfCalories = amountOfCalories;
+        this.glutenFree = glutenFree;
     }
-
     @Override
     public void printPortata() {
         super.printPortata();
         System.out.println( "Calorie : "+ this.amountOfCalories );
-        System.out.println(containsAlcohol ? "Questo dolce contiene Alcol\n" : "Questo dolce non contiene Alcol\n");
+        System.out.println(alcoholic ? "Questo dolce contiene Alcol" : "Questo dolce non contiene Alcol");
+        System.out.println(glutenFree ? "Questo dolce non contiene glutine\n" : "Questo dolce  contiene glutine");
     }
 }
