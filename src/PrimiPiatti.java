@@ -7,7 +7,7 @@ public class PrimiPiatti extends Portata {
 
     private Boolean forWorkout;
 
-    public PrimiPiatti(String nome, Double prezzo, DietaEnum tipoDietaEnum, Integer calorie, Boolean forWorkout)
+    public PrimiPiatti(String nome, Double prezzo, Tipo tipoDietaEnum, Integer calorie, Boolean forWorkout)
     {
         super(nome, prezzo, tipoDietaEnum);
         this.calorie = calorie;

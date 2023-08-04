@@ -30,7 +30,7 @@ public class Dessert extends Portata {
         this.amountOfCalories = amountOfCalories;
     }
 
-    public Dessert(String nome, Double prezzo, DietaEnum tipoDietaEnum, Boolean alcoholic, Double amountOfCalories, Boolean glutenFree) {
+    public Dessert(String nome, Double prezzo, Tipo tipoDietaEnum, Boolean alcoholic, Double amountOfCalories, Boolean glutenFree) {
         super(nome, prezzo, tipoDietaEnum);
         this.alcoholic = alcoholic;
         this.amountOfCalories = amountOfCalories;
@@ -39,8 +39,8 @@ public class Dessert extends Portata {
     @Override
     public void printPortata() {
         super.printPortata();
-        System.out.println( "Calorie : "+ this.amountOfCalories );
-        System.out.println(alcoholic ? "Questo dolce contiene Alcol" : "Questo dolce non contiene Alcol");
-        System.out.println(glutenFree ? "Questo dolce non contiene glutine\n" : "Questo dolce  contiene glutine");
+        System.out.println( "Calorie = "+ this.amountOfCalories );
+        System.out.println(alcoholic ? "Contiene Alcol" : "Non contiene Alcol");
+        System.out.println(glutenFree ? "Non contiene glutine\n" : "Contiene glutine\n");
     }
 }

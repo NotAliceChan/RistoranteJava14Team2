@@ -10,7 +10,7 @@ public class Bevande extends Portata {
     private Boolean isCold;
 
 
-    public Bevande(String nome, Double prezzo, Integer gradoAlcolico,Boolean isCold, DietaEnum tipoDietaEnum) {
+    public Bevande(String nome, Double prezzo, Integer gradoAlcolico,Boolean isCold, Tipo tipoDietaEnum) {
         super(nome, prezzo, tipoDietaEnum);
         this.gradoAlcolico = gradoAlcolico;
         this.isCold = isCold;

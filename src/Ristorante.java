@@ -94,9 +94,9 @@ public class Ristorante {
         System.out.println("Ristorante : " + this.nome + "\nIndirizzo : " + this.indirizzo  +
                 (michelinGuide ? "\nQuesto ristorante è presente sulla guida Michelin" : "\nQuesto ristorante non è presente sulla guida Michelin"));
         for (Menu menu : listaMenu) {
-            System.out.println( "Nome menu : " + menu.getNomeMenu()  + "\nChef  : "+ menu.getChef() + "\nTipo menu : " + menu.getTipoMenu());
+            System.out.println("Chef  : "+ menu.getChef());
             System.out.println();
-            menu.printMenu(DietaEnum.EMPTY);
+            menu.printMenu();
         }
     }
 }

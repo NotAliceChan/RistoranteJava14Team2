@@ -4,7 +4,7 @@
 public class Portata {
     private String nome;
     private Double prezzo;
-    private DietaEnum tipoDietaEnum;
+    private Tipo tipoDietaEnum;
 
 
     /**
@@ -14,7 +14,7 @@ public class Portata {
      * @param prezzo        the prezzo
      * @param tipoDietaEnum the tipo dieta enum
      */
-    public Portata(String nome, Double prezzo, DietaEnum tipoDietaEnum) {
+    public Portata(String nome, Double prezzo, Tipo tipoDietaEnum) {
         this.nome = nome;
         this.prezzo = prezzo;
         this.tipoDietaEnum = tipoDietaEnum;
@@ -61,7 +61,7 @@ public class Portata {
      *
      * @return the tipo dieta
      */
-    public DietaEnum getTipoDieta() {
+    public Tipo getTipoDieta() {
         return tipoDietaEnum;
     }
 
@@ -70,7 +70,7 @@ public class Portata {
      *
      * @param tipoDietaEnum the tipo dieta enum
      */
-    public void setTipoDieta(DietaEnum tipoDietaEnum) {
+    public void setTipoDieta(Tipo tipoDietaEnum) {
         this.tipoDietaEnum = tipoDietaEnum;
     }
 
@@ -82,9 +82,8 @@ public class Portata {
                 ", tipoDietaEnum=" + tipoDietaEnum +
                 '}';
     }
-    // TODO fatto
     public void printPortata(){
-        if(this.tipoDietaEnum == DietaEnum.EMPTY) {
+        if(this.tipoDietaEnum == Tipo.EMPTY) {
             System.out.println("# " + this.nome + " - " + this.prezzo + " € ");
         }else {
             System.out.println("# " + this.nome + " - " + this.prezzo + " € " + "(" + this.tipoDietaEnum.printWithColor() + ")");

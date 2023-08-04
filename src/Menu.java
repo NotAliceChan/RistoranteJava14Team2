@@ -9,14 +9,14 @@ public class Menu {
     private List<Portata> listaPortate;
     private String nomeMenu;
     private String chef;
-    private TipoMenu tipoMenu;
+    private Tipo tipoMenu;
 
     /**
      * Instantiates a new Menu.
      *
      * @param nomeMenu the nome menu
      */
-    public Menu(String nomeMenu, String  chef, TipoMenu tipoMenu) {
+    public Menu(String nomeMenu, String  chef, Tipo tipoMenu) {
         this.listaPortate = new ArrayList<>();
         this.nomeMenu = nomeMenu;
         this.chef = chef;
@@ -73,7 +73,7 @@ public class Menu {
      *
      * @return the tipo menu
      */
-    public TipoMenu getTipoMenu() {
+    public Tipo getTipoMenu() {
         return tipoMenu;
     }
 
@@ -82,7 +82,7 @@ public class Menu {
      *
      * @param tipoMenu the tipo menu
      */
-    public void setTipoMenu(TipoMenu tipoMenu) {
+    public void setTipoMenu(Tipo tipoMenu) {
         this.tipoMenu = tipoMenu;
     }
 
@@ -118,7 +118,7 @@ public class Menu {
      * @param tipoDietaEnum
      * @return la media del prezzo dei piatti vegani, vegetariani o senza glutine, in stringa usando DecimalFormat
      */
-    private String getPrezzoMedioMenu(DietaEnum tipoDietaEnum) {
+    private String getPrezzoMedioMenu(Tipo tipoDietaEnum) {
         Double prezzoTotale = 0.0;
         int contatore = 0;
 
@@ -133,14 +133,12 @@ public class Menu {
      * Print menu filtrato.
      *
      */
-    public void printMenu(DietaEnum tipoDietaEnum){
+    public void printMenu(){
 
-        System.out.println(this.nomeMenu.toUpperCase() + " (" + getPrezzoMedioMenu(tipoDietaEnum) + ")");
-        System.out.print("TIPO MENU: ");
-        System.out.println(tipoMenu.getNome());
-        System.out.println();
+        System.out.println(this.nomeMenu.toUpperCase() + " (" + getPrezzoMedioMenu(this.tipoMenu) + ")");
+        System.out.println("TIPO MENU: " + this.tipoMenu.getNome() );
 
-        if(tipoDietaEnum == DietaEnum.EMPTY) {
+        if(this.tipoMenu == Tipo.EMPTY) {
             System.out.println("PRIMI PIATTI: \n");
             for (Portata p : listaPortate) {
                 if (p instanceof PrimiPiatti) {
@@ -170,25 +168,25 @@ public class Menu {
         else  {
             System.out.println("PRIMI PIATTI: \n");
             for (Portata p : listaPortate) {
-                if (p instanceof PrimiPiatti && p.getTipoDieta() == tipoDietaEnum) {
+                if (p instanceof PrimiPiatti && p.getTipoDieta() == this.tipoMenu) {
                     p.printPortata();
                 }
             }
             System.out.println("\nSECONDI PIATTI: \n");
             for (Portata p : listaPortate) {
-                if (p instanceof SecondiPiatti && p.getTipoDieta() == tipoDietaEnum) {
+                if (p instanceof SecondiPiatti && p.getTipoDieta() == this.tipoMenu) {
                     p.printPortata();
                 }
             }
             System.out.println("\nDESSERT: \n");
             for (Portata p : listaPortate) {
-                if (p instanceof Bevande && p.getTipoDieta() == tipoDietaEnum) {
+                if (p instanceof Dessert && p.getTipoDieta() == this.tipoMenu) {
                     p.printPortata();
                 }
             }
             System.out.println("\nBEVANDE: \n");
             for (Portata p : listaPortate) {
-                if (p instanceof Dessert) {
+                if (p instanceof Bevande) {
                     p.printPortata();
                 }
             }
