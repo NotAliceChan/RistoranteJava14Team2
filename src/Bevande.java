@@ -16,6 +16,22 @@ public class Bevande extends Portata {
         this.isCold = isCold;
     }
 
+    public Integer getGradoAlcolico() {
+        return gradoAlcolico;
+    }
+
+    public void setGradoAlcolico(Integer gradoAlcolico) {
+        this.gradoAlcolico = gradoAlcolico;
+    }
+
+    public Boolean getCold() {
+        return isCold;
+    }
+
+    public void setCold(Boolean cold) {
+        isCold = cold;
+    }
+
     @Override
     public void printPortata() {
         super.printPortata();
