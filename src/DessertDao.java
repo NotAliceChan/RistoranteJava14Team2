@@ -67,72 +67,38 @@ public class DessertDao {
         }
         conn.close();
     }
-    /*
-    public void updateQuery() throws SQLException {
+
+
+    public void updateDessert(Dessert newDessertToUpdate,Integer id) throws SQLException{
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
-        String printQuery = """
-                  SELECT * from superHeroes;
 
-                """;
-        ResultSet resultSet = statement.executeQuery(printQuery);
+        String dessertDaCercare = ""
+                + "SELECT  dessert_id , nome, prezzo, tipo_dieta, calorie, alcolico, gluten_free"
+                + "FROM ristorante.dessert"
+                + "WHERE  dessert_id = '" +  id +"' ; ";
 
-        String findName = null;
-        while (resultSet.next()) {
-            String name = resultSet.getString("name");
-            String team = resultSet.getString("team");
-            if (team.equals(TeamName.XMAN.getName())) {
-                findName = name;
-            }
+        ResultSet resultSet = statement.executeQuery(dessertDaCercare);
+        Integer currentDessertId = null;
+
+        while(resultSet.next()){
+            currentDessertId = resultSet.getInt(id);
         }
-        String updateTable = """
-                UPDATE superHeroes
-                SET power = 'high' 
-                WHERE name = '""" + findName + "';";
+        String updateDessert =
+                         "UPDATE ristorante.dessert " +
+                        "SET nome = '" + newDessertToUpdate.getNome() + "', " +
+                        "prezzo = '" + newDessertToUpdate.getPrezzo() + "', " +
+                        "tipo_dieta = '" + newDessertToUpdate.getTipoDieta() + "', " +
+                        "calorie = '" + newDessertToUpdate.getAmountOfCalories() + "', " +
+                        "alcolico = '" + newDessertToUpdate.isAlcoholic() + "', " +
+                        "gluten_free = '" + newDessertToUpdate.getGlutenFree() + "' " +
+                        "WHERE dessert_id = '" + currentDessertId + "',";
 
-        statement.executeUpdate(updateTable);
-
+        statement.executeUpdate(updateDessert);
+        System.out.println("dessert con " + id + "aggiornato");
         conn.close();
-        System.out.println("Update SuperHeroes" +findName);
-
     }
-
-    public enum TeamName {
-        XMAN("X-MAN_MUTANTI", 1),
-        FANTASTIC4("FANTASTIC4ANDSPIDERMAN",2),
-        FREELANCE("DA SOLO",3);
-
-        private final String name;
-        private final Integer id;
-
-        TeamName(String name, int id) {
-            this.name = name;
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Integer getId() {
-            return id;
-        }
-
-        public static TeamName getTeamNameEnumFromId(Integer id) {
-
-            TeamName teamNameSelected = null;
-
-            for (TeamName teamNameEnum : TeamName.values()) {
-                if(teamNameEnum.getId().equals(id)){
-                    teamNameSelected = teamNameEnum;
-                }
-            }
-
-            return teamNameSelected;
-        }
-
-    }
-
+    /*
     public  void metodoRecuperoDatabase(Integer id) throws SQLException {
         SuperHero superHero = new SuperHero();
 
