@@ -2,13 +2,23 @@
  * The type Secondi piatti.
  */
 public class SecondiPiatti extends Portata {
+    private  Integer menuId;
     private String origine;
     private Integer tempoDiPreparazione;
 
-    public SecondiPiatti(String nome, Double prezzo,Integer tempoDiPreparazione, String origine, Tipo tipoDietaEnum) {
+    public SecondiPiatti(Integer menuId, String nome, Double prezzo,Integer tempoDiPreparazione, String origine, Tipo tipoDietaEnum) {
         super(nome, prezzo, tipoDietaEnum);
+        this.menuId = menuId;
         this.origine = origine;
         this.tempoDiPreparazione = tempoDiPreparazione;
+    }
+
+    public Integer getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(Integer menuId) {
+        this.menuId = menuId;
     }
 
     public String getOrigine() {

@@ -1,33 +1,30 @@
 import java.sql.*;
 public class SecondiPiattiDAO {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/localhost";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/ristorante";
     private static final String USER = "root";
     private static final String PASS = "java14";
 
     public void createTable() throws SQLException {
 
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
         Statement statement = conn.createStatement();
 
 
-        String createQuery = ""
-                + "CREATE TABLE `secondi_piatti` ( "
-                + "  `secondi_piatti_id` int NOT NULL AUTO_INCREMENT, "
-                + "  `nome` varchar(100) NOT NULL, "
-                + "  `prezzo` double NOT NULL, "
-                + "  `origine` varchar(100) DEFAULT NULL, "
-                + "  `tempo_di_cottura` int DEFAULT NULL, "
-                + "  `menu_id` int DEFAULT NULL, "
-                + "  `tipo_dieta` varchar(255) NOT NULL, "
-                + "  PRIMARY KEY (`secondi_piatti_id`), "
-                + "  KEY `secondi_piatti_FK` (`menu_id`), "
-                + "  CONSTRAINT `secondi_piatti_FK` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`menu_id`) ";
+        String createTble = ""
+                + "CREATE TABLE secondi_piatti ( "
+                + "secondi_piatti_id int NOT NULL AUTO_INCREMENT, "
+                + "PRIMARY KEY (secondi_piatti_id), "
+                + "menu_id int DEFAULT NULL, "
+                + "nome varchar(100) NOT NULL, "
+                + "prezzo double NOT NULL, "
+                + "origine varchar(100) DEFAULT NULL, "
+                + "tempo_di_preparazione int DEFAULT NULL, "
+                + "tipo_menu varchar(255) NOT NULL, "
+                + "KEY secondi_piatti_FK (menu_id), "
+                + "CONSTRAINT secondi_piatti_FK FOREIGN KEY (menu_id) REFERENCES menu (menu_id));";
 
-        statement.executeUpdate(createQuery);
-
+        statement.executeUpdate(createTble);
         conn.close();
-
         System.out.println("Tabella secondi_piatti creata");
     }
 
@@ -35,14 +32,36 @@ public class SecondiPiattiDAO {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
 
-        String insertQuery = "INSERT INTO secondi_piatti (nome, prezzo, tipo_dieta) VALUES ('" + secondoPiatto.getNome() + "', '" + secondoPiatto.getPrezzo() + "', '" + secondoPiatto.getTipoDieta() + "');";
+        String insertQuery = "INSERT INTO secondi_piatti (menu_id, nome, prezzo, origine, tempo_di_preparazione, tipo_menu) VALUES ("
+                + secondoPiatto.getMenuId() + ", '" + secondoPiatto.getNome() + "', " + secondoPiatto.getPrezzo()
+                + ", '" + secondoPiatto.getOrigine() + "', " + secondoPiatto.getTempoDiPreparazione() + ", '"
+                + secondoPiatto.getTipoDieta() + "')";
 
         statement.executeUpdate(insertQuery);
-
         conn.close();
-
         System.out.println("Tabella popolata");
 
+    }
+
+    public void insertAllSecondiPiatti(Menu menu) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+
+        for (Portata portataPrimiPiatti : menu.getListaPortate()) {
+            if (portataPrimiPiatti instanceof SecondiPiatti) {
+                String insertQuery = "INSERT INTO secondi_piatti "
+                        + "(menu_id, nome, prezzo, origine, tempo_di_preparazione, tipo_menu) VALUES ("
+                        + ((SecondiPiatti) portataPrimiPiatti).getMenuId()
+                        + ", '" + portataPrimiPiatti.getNome()
+                        + "', " + portataPrimiPiatti.getPrezzo()
+                        + ", '" + ((SecondiPiatti) portataPrimiPiatti).getOrigine()
+                        + "', " + ((SecondiPiatti) portataPrimiPiatti).getTempoDiPreparazione()
+                        + ", '" + portataPrimiPiatti.getTipoDieta() + "')";
+                statement.executeUpdate(insertQuery);
+            }
+        }
+        conn.close();
+        System.out.println("Tabella popolata con tutte le portate di secondi piatti");
     }
 
     public void printSeondiPiatti() throws SQLException {
@@ -54,97 +73,53 @@ public class SecondiPiattiDAO {
                 """;
 
         ResultSet resultSet = statement.executeQuery(printQuery);
-
         int i = 0;
-
         while (resultSet.next()) {
             i = i + 1;
-            System.out.println(" nome " + resultSet.getString("nome") + i);
+            System.out.println(" - nome " + resultSet.getString("nome") + i);
+            System.out.println(" - menu id " + resultSet.getString("menu_id") + i);
             System.out.println(" - prezzo " + resultSet.getString("prezzo") + i);
-            System.out.println(" - tipo dieta " + resultSet.getString("tipo_dieta") + i);
             System.out.println(" - origine " + resultSet.getString("origine") + i);
-            System.out.println(" - tempo di cottura " + resultSet.getString("tempo_di_cottura") + i);
-
+            System.out.println(" - tempo di preparazione " + resultSet.getString("tempo_di_preparazione") + i);
+            System.out.println(" - tipo dieta " + resultSet.getString("tipo_dieta") + i);
         }
-
         conn.close();
-
-    }
-/*
-        public void updateQuery() throws SQLException {
-            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            Statement statement = conn.createStatement();
-            String printQuery = """
-                  SELECT * from secondi_piatti;
-
-                """;
-            ResultSet resultSet = statement.executeQuery(printQuery);
-
-            String findName = null;
-            while (resultSet.next()) {
-                String name = resultSet.getString("name");
-                String team = resultSet.getString("team");
-                if (team.equals(TeamName.XMAN.getName())) {
-                    findName = name;
-                }
-            }
-            String updateTable = """
-                UPDATE superHeroes
-                SET power = 'high' 
-                WHERE name = '""" + findName + "';";
-
-            statement.executeUpdate(updateTable);
-
-            conn.close();
-            System.out.println("Update SuperHeroes" +findName);
-}
-
-    public enum TeamName {
-        XMAN("X-MAN_MUTANTI", 1),
-        FANTASTIC4("FANTASTIC4ANDSPIDERMAN",2),
-        FREELANCE("DA SOLO",3);
-
-        private final String name;
-        private final Integer id;
-
-        TeamName(String name, int id) {
-            this.name = name;
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Integer getId() {
-            return id;
-        }
-
-        public static TeamName getTeamNameEnumFromId(Integer id) {
-
-            TeamName teamNameSelected = null;
-
-            for (TeamName teamNameEnum : TeamName.values()) {
-                if(teamNameEnum.getId().equals(id)){
-                    teamNameSelected = teamNameEnum;
-                }
-            }
-
-            return teamNameSelected;
-        }
-
     }
 
-    public  void metodoRecuperoDatabase(Integer id) throws SQLException {
-        SuperHero superHero = new SuperHero();
+    //_________________________________________________________________________
+    public void updateSecondoPiatto(SecondiPiatti updateSecondoPiatto, Integer secondiPiattiId) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
 
-        superHero.createTable();
-        superHero.insertHeroes("Spiderman", TeamName.XMAN);
-        superHero.printAllHeroes();
-        superHero.updateQuery();
+        String updatequery = "UPDATE secondi_piatti "
+                + "SET menu_id=" + updateSecondoPiatto.getMenuId()
+                + ", nome='" + updateSecondoPiatto.getNome()
+                + "', prezzo=" + updateSecondoPiatto.getPrezzo()
+                + ", origine='" + updateSecondoPiatto.getOrigine()
+                + "', tempo_di_preparazione='" + updateSecondoPiatto.getTempoDiPreparazione()
+                + "' WHERE secondi_piatti_id='" + secondiPiattiId + "'";
 
-        TeamName teamName = TeamName.getTeamNameEnumFromId(id);
+        statement.executeUpdate(updatequery);
+        conn.close();
+        System.out.println("Secondo Piatto con id " + secondiPiattiId + " aggiornato");
     }
 
- */
+    public void deleteSecondoPiatto(Integer secondiPiattiId) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+        String deleteQuery = "delete from secondi_piatti " + "where secondi_piatti_id =" + secondiPiattiId;
+
+        statement.executeUpdate(deleteQuery);
+        conn.close();
+        System.out.println("tabella con id " + secondiPiattiId + " eliminata!");
+    }
+    public void deleteAllSecondiPiatti() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+        String truncateQuery = "truncate secondi_piatti";
+
+        statement.executeUpdate(truncateQuery);
+        conn.close();
+        System.out.println("tabella pulita completamente");
+    }
 }
