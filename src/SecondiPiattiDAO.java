@@ -10,7 +10,7 @@ public class SecondiPiattiDAO {
         Statement statement = conn.createStatement();
 
 
-        String createTble = ""
+        String createTable = ""
                 + "CREATE TABLE secondi_piatti ( "
                 + "secondi_piatti_id int NOT NULL AUTO_INCREMENT, "
                 + "PRIMARY KEY (secondi_piatti_id), "
@@ -23,7 +23,7 @@ public class SecondiPiattiDAO {
                 + "KEY secondi_piatti_FK (menu_id), "
                 + "CONSTRAINT secondi_piatti_FK FOREIGN KEY (menu_id) REFERENCES menu (menu_id));";
 
-        statement.executeUpdate(createTble);
+        statement.executeUpdate(createTable);
         conn.close();
         System.out.println("Tabella secondi_piatti creata");
     }
@@ -86,7 +86,6 @@ public class SecondiPiattiDAO {
         conn.close();
     }
 
-    //_________________________________________________________________________
     public void updateSecondoPiatto(SecondiPiatti updateSecondoPiatto, Integer secondiPiattiId) throws SQLException {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
