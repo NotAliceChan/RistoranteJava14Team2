@@ -10,12 +10,12 @@ public class Main {
         menu.addPortata(new PrimiPiatti("Ramen Vegano", 14.55, Tipo.VEGANO, 70, false));
         menu.addPortata(new PrimiPiatti("Minestra di miso ai germogli", 16.75, Tipo.VEGETARIANO, 198, false));
 
-        menu.addPortata(new SecondiPiatti("Insalata di Polpo e Patate", 18.80, 20, "Italia", Tipo.EMPTY));
-        menu.addPortata(new SecondiPiatti("Salmone Grigliato", 25.90, 7, "Italia",Tipo.EMPTY));
-        menu.addPortata(new SecondiPiatti("Seppie con Piselli", 16.40,5, "Italia", Tipo.EMPTY));
-        menu.addPortata(new SecondiPiatti("Sushi Vegano", 9.99,8, "Giappone", Tipo.VEGANO));
-        menu.addPortata(new SecondiPiatti("Tempura di verdure viola", 7.99,5, "Giappone", Tipo.VEGETARIANO));
-        menu.addPortata(new SecondiPiatti("Tofu dorato con cipollotti", 24.99,3, "Giappione", Tipo.SENZA_GLUTINE));
+        menu.addPortata(new SecondiPiatti(1,"Insalata di Polpo e Patate", 18.80, 20, "Italia", Tipo.EMPTY));
+        menu.addPortata(new SecondiPiatti(1,"Salmone Grigliato", 25.90, 7, "Italia",Tipo.EMPTY));
+        menu.addPortata(new SecondiPiatti(1,"Seppie con Piselli", 16.40,5, "Italia", Tipo.EMPTY));
+        menu.addPortata(new SecondiPiatti(1,"Sushi Vegano", 9.99,8, "Giappone", Tipo.VEGANO));
+        menu.addPortata(new SecondiPiatti(1,"Tempura di verdure viola", 7.99,5, "Giappone", Tipo.VEGETARIANO));
+        menu.addPortata(new SecondiPiatti(1,"Tofu dorato con cipollotti", 24.99,3, "Giappione", Tipo.SENZA_GLUTINE));
 
         menu.addPortata(new Bevande("Acqua Naturale", 2.50,0,true, Tipo.EMPTY));
         menu.addPortata(new Bevande("Coca cola", 3.00, 0,true, Tipo.EMPTY));
