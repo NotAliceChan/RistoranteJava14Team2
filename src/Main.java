@@ -6,11 +6,11 @@ public class Main {
         Menu menu = new Menu("menu del giorno", "Alice" ,Tipo.VEGETARIANO);
         laSirenetta.addMenu(menu);
 
-        menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, Tipo.EMPTY, 120, true));
-        menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, Tipo.EMPTY, 201, true));
-        menu.addPortata(new PrimiPiatti("Salmone marinato al genmaicha e al coriandolo", 22.90, Tipo.SENZA_GLUTINE, 230, false));
-        menu.addPortata(new PrimiPiatti("Ramen Vegano", 14.55, Tipo.VEGANO, 70, false));
-        menu.addPortata(new PrimiPiatti("Minestra di miso ai germogli", 16.75, Tipo.VEGETARIANO, 198, false));
+        menu.addPortata(new PrimiPiatti("Carpaccio Maguro", 18.50, Tipo.EMPTY, 120, "Giappone"));
+        menu.addPortata(new PrimiPiatti("Tartarre di Salmone", 14.80, Tipo.EMPTY, 201, "Giappone"));
+        menu.addPortata(new PrimiPiatti("Salmone marinato al genmaicha e al coriandolo", 22.90, Tipo.SENZA_GLUTINE, 230, "Giappone"));
+        menu.addPortata(new PrimiPiatti("Ramen Vegano", 14.55, Tipo.VEGANO, 70, "Giappone"));
+        menu.addPortata(new PrimiPiatti("Minestra di miso ai germogli", 16.75, Tipo.VEGETARIANO, 198, "Giappone"));
 
         menu.addPortata(new SecondiPiatti(1,"Insalata di Polpo e Patate", 18.80, 20, "Italia", Tipo.EMPTY));
         menu.addPortata(new SecondiPiatti(1,"Salmone Grigliato", 25.90, 7, "Italia",Tipo.EMPTY));
