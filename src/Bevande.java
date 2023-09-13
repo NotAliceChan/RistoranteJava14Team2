@@ -8,12 +8,22 @@ public class Bevande extends Portata {
     //TODO tutte le classi figli di portate devono avere almeno due campi in più
     private Integer gradoAlcolico;
     private Boolean isCold;
+    private Integer Id;
 
 
-    public Bevande(String nome, Double prezzo, Integer gradoAlcolico,Boolean isCold, Tipo tipoDietaEnum) {
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public Bevande(String nome, Double prezzo, Integer gradoAlcolico, Boolean isCold, Tipo tipoDietaEnum) {
         super(nome, prezzo, tipoDietaEnum);
         this.gradoAlcolico = gradoAlcolico;
         this.isCold = isCold;
+        this.Id = Id;
     }
 
     public Integer getGradoAlcolico() {

@@ -66,87 +66,41 @@ public class BevandeDao {
         }
 
         conn.close();
-//
-//    }
-//
-//    public void updateQuery() throws SQLException {
-//        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-//        Statement statement = conn.createStatement();
-//        String printQuery = """
-//                  SELECT * from superHeroes;
-//
-//                """;
-//        ResultSet resultSet = statement.executeQuery(printQuery);
-//
-//        String findName = null;
-//        while (resultSet.next()) {
-//            String name = resultSet.getString("name");
-//            String team = resultSet.getString("team");
-//            if (team.equals(TeamName.XMAN.getName())) {
-//                findName = name;
-//            }
-//        }
-//        String updateTable = """
-//                UPDATE superHeroes
-//                SET power = 'high'
-//                WHERE name = '""" + findName + "';";
-//
-//        statement.executeUpdate(updateTable);
-//
-//        conn.close();
-//        System.out.println("Update SuperHeroes" +findName);
-//
-//    }
-//
-//    public enum TeamName {
-//        XMAN("X-MAN_MUTANTI", 1),
-//        FANTASTIC4("FANTASTIC4ANDSPIDERMAN",2),
-//        FREELANCE("DA SOLO",3);
-//
-//        private final String name;
-//        private final Integer id;
-//
-//        TeamName(String name, int id) {
-//            this.name = name;
-//            this.id = id;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public Integer getId() {
-//            return id;
-//        }
-//
-//        public static TeamName getTeamNameEnumFromId(Integer id) {
-//
-//            TeamName teamNameSelected = null;
-//
-//            for (TeamName teamNameEnum : TeamName.values()) {
-//                if(teamNameEnum.getId().equals(id)){
-//                    teamNameSelected = teamNameEnum;
-//                }
-//            }
-//
-//            return teamNameSelected;
-//        }
-//
-//    }
-//
-//    public  void metodoRecuperoDatabase(Integer id) throws SQLException {
-//        SuperHero superHero = new SuperHero();
-//
-//        superHero.createTable();
-//        superHero.insertHeroes("Spiderman", TeamName.XMAN);
-//        superHero.printAllHeroes();
-//        superHero.updateQuery();
-//
-//        TeamName teamName = TeamName.getTeamNameEnumFromId(id);
-//    }
-//}
-//
-//
-//
-}
+    }
+
+    public void updateBevande(Bevande updateBevande, Integer BevandeId) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+
+        String updatequery = "UPDATE secondi_piatti "
+                + "SET menu_id=" + updateBevande.getId()
+                + ", nome='" + updateBevande.getNome()
+                + "', prezzo=" + updateBevande.getPrezzo()
+                + ", grado_alcolico='" + updateBevande.getGradoAlcolico()
+                + "', is_cold='" + updateBevande.getCold()
+                + "' WHERE bevande_id='" + BevandeId + "'";
+
+        statement.executeUpdate(updatequery);
+        conn.close();
+        System.out.println("Bevande con id " + BevandeId + " aggiornato");
+    }
+
+    public void deleteBevande(Integer bevandeId) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+        String deleteQuery = "delete from Bevande " + "where Bevande_id =" + bevandeId;
+
+        statement.executeUpdate(deleteQuery);
+        conn.close();
+        System.out.println("tabella con id " + bevandeId + " eliminata!");
+    }
+    public void deleteAllBevande() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+        String truncateQuery = "truncate bevande";
+
+        statement.executeUpdate(truncateQuery);
+        conn.close();
+        System.out.println("tabella pulita completamente");
+    }
 }
