@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 public class Main {
     public static void main(String[] args) {
         Ristorante laSirenetta = new Ristorante("La Sirenetta", "Via Fantasia", true);
@@ -25,12 +27,34 @@ public class Main {
         menu.addPortata(new Bevande("Vino Bianco Team1Java (Produzione propria) ", 14.50, 14,true, Tipo.EMPTY));
         menu.addPortata(new Bevande("Vino Ambrato Team1Java (Produzione propria) ", 16.50,13,false, Tipo.EMPTY));
 
-        menu.addPortata(new Dessert("Tiramisù", 8.00,Tipo.VEGANO,false,420d, false));
-        menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,Tipo.VEGETARIANO,false,500d, false));
-        menu.addPortata(new Dessert("Babà", 12.99, Tipo.SENZA_GLUTINE,true,320d, false));
-        menu.addPortata(new Dessert("Torta della nonna", 10.90,Tipo.VEGANO,false,300d, false));
-        menu.addPortata(new Dessert("Mazzamorra morada", 6.70,Tipo.VEGETARIANO, false, 450d, false));
+        menu.addPortata(new Dessert("Tiramisù", 8.00, Tipo.VEGANO ,null,null, 450d));
+        menu.addPortata(new Dessert("Tiramisù", 8.00, Tipo.VEGANO ,null,null, 450d));
+        menu.addPortata(new Dessert("Tartufo di Pizzo", 8.40,Tipo.VEGETARIANO,null,null, 950d));
+        menu.addPortata(new Dessert("Babà", 12.99, Tipo.SENZA_GLUTINE,null,null, 750d));
+        menu.addPortata(new Dessert("Torta della nonna", 10.90,Tipo.VEGANO,null,null, 850d));
+        menu.addPortata(new Dessert("Mazzamorra morada", 6.70,Tipo.VEGETARIANO, null,null, 650d));
 
-       laSirenetta.printInfo();
+        laSirenetta.printInfo();
+
+        /*
+        Menu menu1 = new Menu("menu spaziale", "Alice" ,Tipo.VEGETARIANO);
+        MenuDao  menuDao = new MenuDao();
+        try {
+            Integer menuId = menuDao.insertMenu(menu1);
+            Dessert tiramisu = new Dessert("Tiramisù", 8.00, Tipo.VEGANO ,null,menuId, 450d);
+            Dessert tartufo = new Dessert("Tartufo di Pizzo", 8.40,Tipo.VEGETARIANO,null,menuId, 950d);
+            Dessert baba = new Dessert("Babà", 12.99, Tipo.SENZA_GLUTINE,null,menuId, 750d);
+            Dessert tortaNonna = new Dessert("Torta della nonna", 10.90,Tipo.VEGANO,null,menuId, 850d);
+            Dessert mazamorra = new Dessert("Mazzamorra morada", 6.70,Tipo.VEGETARIANO, null,menuId, 650d);
+
+            DessertDao dessertDao = new DessertDao();
+            dessertDao.insertDessert(tiramisu);
+            dessertDao.insertDessert(tartufo);
+            dessertDao.insertDessert(baba);
+            dessertDao.insertDessert(tortaNonna);
+            dessertDao.insertDessert(mazamorra);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }                                                                                               */
     }
 }

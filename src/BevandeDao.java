@@ -50,9 +50,7 @@ public class BevandeDao {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
 
-        String printQuery = """
-                SELECT * from bevande;
-                """;
+        String printQuery = " SELECT * from ristorante.bevande; \n";
 
         ResultSet resultSet = statement.executeQuery(printQuery);
 

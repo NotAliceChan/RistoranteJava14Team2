@@ -49,9 +49,7 @@ public class SecondiPiattiDAO {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
 
-        String printQuery = """
-                SELECT * from secondi_piatti;
-                """;
+        String printQuery = " SELECT * from secondi_piatti;\n ";
 
         ResultSet resultSet = statement.executeQuery(printQuery);
 

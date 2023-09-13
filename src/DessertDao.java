@@ -1,8 +1,7 @@
 import java.sql.*;
 
 public class DessertDao {
-
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mysql";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/ristorante";
     private static final String USER = "root";
     private static final String PASS = "Totti10totti";
 
@@ -33,23 +32,41 @@ public class DessertDao {
         System.out.println("Tabella dessert creata");
     }
 
-    public void insertDessert(Dessert dessert) throws SQLException {
+    /*public void insertDessert(Dessert dessert) throws SQLException {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
 
-        String insertQuery = "INSERT INTO dessert (nome,prezzo,tipo_dieta,calorie,alcolico,gluten_free ) VALUES ('" + dessert.getNome() + "', '" + dessert.getPrezzo() + "', '"+ dessert.getTipoDieta() + "', '"+dessert.getAmountOfCalories()+"', '"+dessert.isAlcoholic() + "', '" +dessert.getGlutenFree()+"');";
+        String insertQuery = ""
+                + "INSERT INTO dessert "
+                + "(nome,prezzo,tipo_dieta,calorie,menu_id )"
+                + "VALUES ('" + dessert.getNome() + "', '" + dessert.getPrezzo() + "', '"+ dessert.getTipoDieta() + "', '"+dessert.getAmountOfCalories()+"' , '"+dessert.getMenuId() +"');";
+
         statement.executeUpdate(insertQuery);
         conn.close();
 
         System.out.println("Tabella popolata");
     }
+    */
+    public void insertDessert(Dessert dessert) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+
+        String insertQuery = ""
+                + "INSERT INTO dessert "
+                + "(nome,prezzo,tipo_dieta,calorie,menu_id )"
+                + "VALUES ('" + dessert.getNome() + "', '" + dessert.getPrezzo() + "', '"+ dessert.getTipoDieta() + "', '"+dessert.getAmountOfCalories()+"' , '"   +  dessert.getMenuId() +  "');";
+
+        statement.executeUpdate(insertQuery);
+        conn.close();
+
+        System.out.println("Tabella popolata");
+    }
+
     public void printAllDessert() throws SQLException {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
 
-        String printQuery = """
-                SELECT * from superHeroes;
-                """;
+        String printQuery = " SELECT * from dessert ;\n";
 
         ResultSet resultSet = statement.executeQuery(printQuery);
 
@@ -68,14 +85,13 @@ public class DessertDao {
         conn.close();
     }
 
-
     public void updateDessert(Dessert newDessertToUpdate,Integer id) throws SQLException{
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement statement = conn.createStatement();
 
         String dessertDaCercare = ""
                 + "SELECT  dessert_id , nome, prezzo, tipo_dieta, calorie, alcolico, gluten_free"
-                + "FROM ristorante.dessert"
+                + "FROM dessert"
                 + "WHERE  dessert_id = '" +  id +"' ; ";
 
         ResultSet resultSet = statement.executeQuery(dessertDaCercare);
@@ -85,28 +101,35 @@ public class DessertDao {
             currentDessertId = resultSet.getInt(id);
         }
         String updateDessert =
-                         "UPDATE ristorante.dessert " +
+                         "UPDATE dessert " +
                         "SET nome = '" + newDessertToUpdate.getNome() + "', " +
                         "prezzo = '" + newDessertToUpdate.getPrezzo() + "', " +
                         "tipo_dieta = '" + newDessertToUpdate.getTipoDieta() + "', " +
-                        "calorie = '" + newDessertToUpdate.getAmountOfCalories() + "', " +
-                        "alcolico = '" + newDessertToUpdate.isAlcoholic() + "', " +
-                        "gluten_free = '" + newDessertToUpdate.getGlutenFree() + "' " +
+                        "calorie = '" + newDessertToUpdate.getAmountOfCalories() + "' " +
                         "WHERE dessert_id = '" + currentDessertId + "',";
 
         statement.executeUpdate(updateDessert);
         System.out.println("dessert con " + id + "aggiornato");
         conn.close();
     }
-    /*
-    public  void metodoRecuperoDatabase(Integer id) throws SQLException {
-        SuperHero superHero = new SuperHero();
 
-        superHero.createTable();
-        superHero.insertHeroes("Spiderman", TeamName.XMAN);
-        superHero.printAllHeroes();
-        superHero.updateQuery();
+    public void deleteDessert(Integer dessertId) throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+        String deleteQuery = "delete from dessert " + "where dessert_id =" + dessertId;
 
-        TeamName teamName = TeamName.getTeamNameEnumFromId(id);
-    }*/
+        statement.executeUpdate(deleteQuery);
+        conn.close();
+        System.out.println("dessert con id " + dessertId + " eliminato!");
+    }
+
+    public void deleteAllDessert() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement statement = conn.createStatement();
+        String truncateQuery = "truncate dessert";
+
+        statement.executeUpdate(truncateQuery);
+        conn.close();
+        System.out.println("tabella pulita completamente");
+    }
 }
